@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About [Your Name] - [Your Title/Role]</title>
+    <title>[Your Name] - Designer & Developer</title>
     <style>
         * {
             margin: 0;
@@ -15,48 +15,36 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f8f8f8;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
         }
 
         /* Navigation */
         .nav {
-            background-color: #2c2c2c;
+            background-color: rgba(44, 44, 44, 0.95);
+            backdrop-filter: blur(10px);
             padding: 0;
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-            height: 70px;
-        }
-
-        .logo {
-            color: white;
-            font-size: 2rem;
-            font-weight: bold;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            width: 50px;
-            height: 50px;
-            border: 2px solid white;
-            border-radius: 50%;
+            align-items: center;
+            padding: 0 40px;
+            height: 70px;
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 40px;
+            gap: 50px;
             align-items: center;
         }
 
@@ -64,8 +52,10 @@
             color: #ccc;
             text-decoration: none;
             font-size: 1rem;
-            transition: color 0.3s ease;
+            font-weight: 400;
+            transition: all 0.3s ease;
             padding: 10px 0;
+            position: relative;
         }
 
         .nav-link:hover,
@@ -73,7 +63,24 @@
             color: white;
         }
 
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #00d4ff;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
         .social-links {
+            position: absolute;
+            right: 40px;
             display: flex;
             gap: 20px;
         }
@@ -81,110 +88,195 @@
         .social-link {
             color: #ccc;
             font-size: 1.2rem;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            text-decoration: none;
         }
 
         .social-link:hover {
-            color: white;
+            color: #00d4ff;
+            transform: translateY(-2px);
         }
 
         /* Main Content */
         .main-content {
             margin-top: 70px;
-            min-height: 100vh;
+            min-height: calc(100vh - 70px);
             display: flex;
             align-items: center;
-            padding: 60px 0;
+            padding: 80px 0;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
+            width: 100%;
         }
 
-        .about-section {
+        .hero-section {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            grid-template-columns: 1fr 600px 1fr;
+            gap: 60px;
             align-items: center;
+            position: relative;
         }
 
-        .text-content {
-            max-width: 500px;
+        /* Left Side - Designer */
+        .designer-section {
+            text-align: right;
+            padding-right: 40px;
         }
 
-        .about-title {
+        .designer-title {
             font-size: 4rem;
             font-weight: 300;
-            color: #2c2c2c;
-            margin-bottom: 30px;
+            color: #2c3e50;
+            margin-bottom: 20px;
             letter-spacing: -0.02em;
         }
 
-        .intro-text {
-            font-size: 1.3rem;
-            color: #666;
-            margin-bottom: 25px;
-            line-height: 1.6;
-        }
-
-        .description {
+        .designer-desc {
             font-size: 1.1rem;
-            color: #777;
-            line-height: 1.7;
-            margin-bottom: 20px;
+            color: #7f8c8d;
+            line-height: 1.6;
+            max-width: 300px;
+            margin-left: auto;
         }
 
-        /* Profile Image Container */
+        /* Right Side - Coder */
+        .coder-section {
+            text-align: left;
+            padding-left: 40px;
+            position: relative;
+        }
+
+        .coder-title {
+            font-size: 4rem;
+            font-weight: 300;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .coder-title::before {
+            content: '<';
+            color: #e74c3c;
+        }
+
+        .coder-title::after {
+            content: '>';
+            color: #e74c3c;
+        }
+
+        .coder-desc {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            line-height: 1.6;
+            max-width: 300px;
+        }
+
+        /* Code snippets background */
+        .code-bg {
+            position: absolute;
+            top: 50%;
+            right: -20px;
+            transform: translateY(-50%);
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #bdc3c7;
+            opacity: 0.3;
+            line-height: 1.4;
+            z-index: 1;
+        }
+
+        /* Center Image */
         .image-container {
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
+            z-index: 10;
         }
 
         .profile-image {
-            width: 400px;
-            height: 500px;
+            width: 500px;
+            height: 600px;
             object-fit: cover;
             border-radius: 20px;
             position: relative;
             z-index: 2;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
         }
 
         /* Paint splash effects */
+        .paint-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 3;
+        }
+
         .paint-splash {
             position: absolute;
             border-radius: 50%;
-            z-index: 1;
-        }
-
-        .splash-1 {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
-            top: 20%;
-            right: 10%;
             animation: float 6s ease-in-out infinite;
         }
 
+        .splash-1 {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            top: 15%;
+            left: -10%;
+            animation-delay: 0s;
+        }
+
         .splash-2 {
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             background: linear-gradient(45deg, #48dbfb, #0abde3);
-            top: 40%;
+            top: 30%;
             right: -5%;
-            animation: float 8s ease-in-out infinite reverse;
+            animation-delay: 2s;
         }
 
         .splash-3 {
-            width: 70px;
-            height: 70px;
+            width: 100px;
+            height: 100px;
             background: linear-gradient(45deg, #ff9ff3, #f368e0);
-            bottom: 30%;
-            right: 15%;
-            animation: float 7s ease-in-out infinite;
+            bottom: 25%;
+            left: -5%;
+            animation-delay: 4s;
+        }
+
+        .splash-4 {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(45deg, #a8e6cf, #7fcdcd);
+            bottom: 40%;
+            right: -8%;
+            animation-delay: 1s;
+        }
+
+        /* Face paint effect */
+        .face-paint {
+            position: absolute;
+            top: 20%;
+            left: 45%;
+            width: 200px;
+            height: 300px;
+            background: linear-gradient(45deg, 
+                rgba(255, 107, 107, 0.8) 0%,
+                rgba(72, 219, 251, 0.8) 30%,
+                rgba(254, 202, 87, 0.8) 60%,
+                rgba(255, 159, 243, 0.8) 100%);
+            border-radius: 50%;
+            filter: blur(2px);
+            z-index: 4;
+            mix-blend-mode: multiply;
         }
 
         @keyframes float {
@@ -192,71 +284,117 @@
                 transform: translateY(0px) rotate(0deg);
             }
             50% {
-                transform: translateY(-20px) rotate(180deg);
+                transform: translateY(-25px) rotate(180deg);
             }
         }
 
-        /* Skills Section */
-        .skills-section {
-            margin-top: 80px;
+        /* Portfolio Section */
+        .portfolio-preview {
+            margin-top: 120px;
             text-align: center;
         }
 
-        .skills-title {
-            font-size: 2rem;
-            color: #2c2c2c;
-            margin-bottom: 40px;
-            font-weight: 300;
-        }
-
-        .skills-grid {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        .skill-item {
-            background: white;
-            padding: 30px 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            min-width: 200px;
-            text-align: center;
-        }
-
-        .skill-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-
-        .skill-item h3 {
-            color: #2c2c2c;
+        .portfolio-title {
             font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .work-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .work-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .work-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .work-content {
+            padding: 25px;
+        }
+
+        .work-title {
+            font-size: 1.3rem;
+            color: #2c3e50;
             margin-bottom: 10px;
             font-weight: 500;
         }
 
-        .skill-item p {
-            color: #666;
+        .work-desc {
+            color: #7f8c8d;
             font-size: 0.95rem;
+            line-height: 1.5;
         }
 
         /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-
-            .about-section {
+        @media (max-width: 1200px) {
+            .hero-section {
                 grid-template-columns: 1fr;
                 gap: 40px;
                 text-align: center;
             }
 
-            .about-title {
-                font-size: 3rem;
+            .designer-section,
+            .coder-section {
+                text-align: center;
+                padding: 0;
+            }
+
+            .designer-desc,
+            .coder-desc {
+                margin: 0 auto;
+            }
+
+            .profile-image {
+                width: 400px;
+                height: 500px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 20px;
+            }
+
+            .social-links {
+                position: relative;
+                right: auto;
+                margin-top: 20px;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 20px;
+            }
+
+            .main-content {
+                margin-top: 120px;
+            }
+
+            .designer-title,
+            .coder-title {
+                font-size: 2.5rem;
             }
 
             .profile-image {
@@ -264,25 +402,20 @@
                 height: 400px;
             }
 
-            .skills-grid {
-                gap: 20px;
-            }
-
-            .skill-item {
-                min-width: 150px;
-                padding: 20px 30px;
+            .container {
+                padding: 0 20px;
             }
         }
 
         /* Loading animation */
         .main-content {
-            animation: fadeIn 1s ease-in;
+            animation: fadeIn 1.2s ease-in;
         }
 
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -295,19 +428,17 @@
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
-            <a href="#" class="logo">YI</a>
             <ul class="nav-menu">
-                <li><a href="#" class="nav-link active">about</a></li>
-                <li><a href="#" class="nav-link">learn</a></li>
-                <li><a href="#" class="nav-link">portfolio</a></li>
-                <li><a href="#" class="nav-link">blog</a></li>
-                <li><a href="#" class="nav-link">contact</a></li>
+                <li><a href="about.html" class="nav-link active">about</a></li>
+                <li><a href="learn.html" class="nav-link">learn</a></li>
+                <li><a href="portfolio.html" class="nav-link">portfolio</a></li>
+                <li><a href="blog.html" class="nav-link">blog</a></li>
+                <li><a href="contact.html" class="nav-link">contact</a></li>
             </ul>
             <div class="social-links">
-                <a href="https://twitter.com/yourusername" class="social-link" target="_blank">🐦</a>
-                <a href="https://linkedin.com/in/yourprofile" class="social-link" target="_blank">💼</a>
-                <a href="https://github.com/yourusername" class="social-link" target="_blank">🔧</a>
-                <a href="https://instagram.com/yourusername" class="social-link" target="_blank">📷</a>
+                <a href="https://linkedin.com/in/yourprofile" class="social-link" target="_blank" title="LinkedIn">💼</a>
+                <a href="https://instagram.com/yourusername" class="social-link" target="_blank" title="Instagram">📷</a>
+                <a href="https://tiktok.com/@yourusername" class="social-link" target="_blank" title="TikTok">🎵</a>
             </div>
         </div>
     </nav>
@@ -315,44 +446,74 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="container">
-            <section class="about-section">
-                <div class="text-content">
-                    <h1 class="about-title">about.</h1>
-                    <p class="intro-text">I'm a <strong>[your role]</strong> based in [your location].</p>
-                    <p class="description">
-                        Since [year], I've enjoyed turning complex problems into simple, beautiful and intuitive solutions. 
-                        When I'm not [your main activity], you'll find me [hobby 1], [hobby 2] or [hobby 3].
-                    </p>
-                    <p class="description">
-                        [Add more about your background, what drives you, or your approach to work/life.]
+            <section class="hero-section">
+                <!-- Left Side - Designer -->
+                <div class="designer-section">
+                    <h1 class="designer-title">designer</h1>
+                    <p class="designer-desc">
+                        Product designer specialising in UI design and design systems.
                     </p>
                 </div>
 
+                <!-- Center - Profile Image -->
                 <div class="image-container">
-                    <img src="https://via.placeholder.com/400x500/f0f0f0/999999?text=Your+Photo+Here" 
+                    <img src="https://via.placeholder.com/500x600/f0f0f0/999999?text=Your+Creative+Photo" 
                          alt="Your Name" 
                          class="profile-image">
-                    <div class="paint-splash splash-1"></div>
-                    <div class="paint-splash splash-2"></div>
-                    <div class="paint-splash splash-3"></div>
+                    
+                    <!-- Paint splashes -->
+                    <div class="paint-overlay">
+                        <div class="paint-splash splash-1"></div>
+                        <div class="paint-splash splash-2"></div>
+                        <div class="paint-splash splash-3"></div>
+                        <div class="paint-splash splash-4"></div>
+                        <div class="face-paint"></div>
+                    </div>
+                </div>
+
+                <!-- Right Side - Coder -->
+                <div class="coder-section">
+                    <h1 class="coder-title">coder</h1>
+                    <p class="coder-desc">
+                        Front end developer who writes clean, elegant and efficient code.
+                    </p>
+                    
+                    <!-- Code background -->
+                    <div class="code-bg">
+                        &lt;html&gt;<br>
+                        &nbsp;&nbsp;height:184px;<br>
+                        &nbsp;&nbsp;****/***{}<br>
+                        &nbsp;&nbsp;CSS3 HTML5<br>
+                        &nbsp;&nbsp;root:#000;<br>
+                        &nbsp;&nbsp;jQuery
+                    </div>
                 </div>
             </section>
 
-            <!-- Skills Section (Optional) -->
-            <section class="skills-section">
-                <h2 class="skills-title">What I do</h2>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <h3>Design</h3>
-                        <p>UI/UX, Branding, Prototyping</p>
+            <!-- Portfolio Preview -->
+            <section class="portfolio-preview">
+                <h2 class="portfolio-title">Some of my latest work</h2>
+                <div class="work-grid">
+                    <div class="work-item" onclick="window.open('portfolio.html', '_self')">
+                        <img src="https://via.placeholder.com/300x200/3498db/ffffff?text=Project+1" alt="Project 1">
+                        <div class="work-content">
+                            <h3 class="work-title">Project Name</h3>
+                            <p class="work-desc">Brief description of your amazing project and what technologies you used.</p>
+                        </div>
                     </div>
-                    <div class="skill-item">
-                        <h3>Development</h3>
-                        <p>Frontend, Backend, Full-stack</p>
+                    <div class="work-item" onclick="window.open('portfolio.html', '_self')">
+                        <img src="https://via.placeholder.com/300x200/e74c3c/ffffff?text=Project+2" alt="Project 2">
+                        <div class="work-content">
+                            <h3 class="work-title">Another Project</h3>
+                            <p class="work-desc">Another cool project showcasing your skills and creativity.</p>
+                        </div>
                     </div>
-                    <div class="skill-item">
-                        <h3>Strategy</h3>
-                        <p>Product, Growth, Analytics</p>
+                    <div class="work-item" onclick="window.open('portfolio.html', '_self')">
+                        <img src="https://via.placeholder.com/300x200/f39c12/ffffff?text=Project+3" alt="Project 3">
+                        <div class="work-content">
+                            <h3 class="work-title">Third Project</h3>
+                            <p class="work-desc">A third example of your work demonstrating different skills.</p>
+                        </div>
                     </div>
                 </div>
             </section>

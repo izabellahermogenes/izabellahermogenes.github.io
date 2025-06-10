@@ -39,6 +39,7 @@
             align-items: center;
             padding: 0 40px;
             height: 70px;
+            position: relative;
         }
 
         .nav-menu {
@@ -103,6 +104,7 @@
             min-height: calc(100vh - 70px);
             display: flex;
             align-items: center;
+            justify-content: center;
             padding: 80px 0;
         }
 
@@ -115,17 +117,19 @@
 
         .hero-section {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr auto 1fr;
             gap: 60px;
             align-items: center;
+            justify-items: center;
             position: relative;
+            width: 100%;
         }
-
 
         /* Left Side - Designer */
         .designer-section {
             text-align: right;
             padding-right: 40px;
+            justify-self: end;
         }
 
         .designer-title {
@@ -144,11 +148,33 @@
             margin-left: auto;
         }
 
+        /* Center Image */
+        .image-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .profile-image {
+            width: 500px;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 20px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+
+
         /* Right Side - Coder */
         .coder-section {
             text-align: left;
             padding-left: 40px;
             position: relative;
+            justify-self: start;
         }
 
         .coder-title {
@@ -190,110 +216,11 @@
             z-index: 1;
         }
 
-        /* Center Image */
-        .image-container {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 10;
-        }
-
-        .profile-image {
-            width: 500px;
-            height: 600px;
-            object-fit: cover;
-            border-radius: 20px;
-            position: relative;
-            z-index: 2;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-        }
-
-        /* Paint splash effects */
-        .paint-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 3;
-        }
-
-        .paint-splash {
-            position: absolute;
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .splash-1 {
-    width: 120px;
-    height: 120px;
-    background: linear-gradient(45deg, #ff6b6b, #feca57);
-    top: 15%;
-    left: 0; /* changed from -10% */
-    animation-delay: 0s;
-}
-
-.splash-2 {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(45deg, #48dbfb, #0abde3);
-    top: 30%;
-    right: 0; /* changed from -5% */
-    animation-delay: 2s;
-}
-
-.splash-3 {
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(45deg, #ff9ff3, #f368e0);
-    bottom: 25%;
-    left: 0; /* changed from -5% */
-    animation-delay: 4s;
-}
-
-.splash-4 {
-    width: 90px;
-    height: 90px;
-    background: linear-gradient(45deg, #a8e6cf, #7fcdcd);
-    bottom: 40%;
-    right: 0; /* changed from -8% */
-    animation-delay: 1s;
-}
-
-
-        /* Face paint effect */
-        .face-paint {
-            position: absolute;
-            top: 20%;
-            left: 45%;
-            width: 200px;
-            height: 300px;
-            background: linear-gradient(45deg, 
-                rgba(255, 107, 107, 0.8) 0%,
-                rgba(72, 219, 251, 0.8) 30%,
-                rgba(254, 202, 87, 0.8) 60%,
-                rgba(255, 159, 243, 0.8) 100%);
-            border-radius: 50%;
-            filter: blur(2px);
-            z-index: 4;
-            mix-blend-mode: multiply;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-25px) rotate(180deg);
-            }
-        }
-
         /* Portfolio Section */
         .portfolio-preview {
             margin-top: 120px;
             text-align: center;
+            padding: 0 40px;
         }
 
         .portfolio-title {
@@ -309,6 +236,9 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 40px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .work-item {
@@ -348,6 +278,13 @@
             line-height: 1.5;
         }
 
+        /* Footer */
+        .footer {
+            background: #f8f9fa;
+            padding: 60px 0;
+            margin-top: 80px;
+        }
+
         /* Responsive Design */
         @media (max-width: 1200px) {
             .hero-section {
@@ -360,6 +297,7 @@
             .coder-section {
                 text-align: center;
                 padding: 0;
+                justify-self: center;
             }
 
             .designer-desc,
@@ -458,9 +396,8 @@
                 <!-- Center - Profile Image -->
                 <div class="image-container">
                     <img src="https://via.placeholder.com/500x600/f0f0f0/999999?text=Your+Creative+Photo" 
-                         alt="Your Name" 
+                         alt="Izabella Hermogenes" 
                          class="profile-image">
-                    </div>
                 </div>
 
                 <!-- Right Side - Coder -->
@@ -481,36 +418,37 @@
                     </div>
                 </div>
             </section>
-                        </div>
-                    </div>
-                </div>
-            </section>
         </div>
     </main>
-<footer class="footer">
-    <section class="portfolio-preview">
-                <div class="work-grid">
-                    <div class="work-item" onclick="window.open('portfolio.html', '_self')">
-                        <img src="https://via.placeholder.com/300x200/3498db/ffffff?text=Project+1" alt="Project 1">
-                        <div class="work-content">
-                            <h3 class="work-title">Project Name</h3>
-                            <p class="work-desc">Brief description of your amazing project and what technologies you used.</p>
-                        </div>
+
+    <!-- Footer with Portfolio Preview -->
+    <footer class="footer">
+        <section class="portfolio-preview">
+            <h2 class="portfolio-title">Recent Work</h2>
+            <div class="work-grid">
+                <div class="work-item" onclick="window.open('portfolio.html', '_self')">
+                    <img src="https://via.placeholder.com/300x200/3498db/ffffff?text=Project+1" alt="Project 1">
+                    <div class="work-content">
+                        <h3 class="work-title">Project Name</h3>
+                        <p class="work-desc">Brief description of your amazing project and what technologies you used.</p>
                     </div>
-                    <div class="work-item" onclick="window.open('portfolio.html', '_self')">
-                        <img src="https://via.placeholder.com/300x200/e74c3c/ffffff?text=Project+2" alt="Project 2">
-                        <div class="work-content">
-                            <h3 class="work-title">Another Project</h3>
-                            <p class="work-desc">Another cool project showcasing your skills and creativity.</p>
-                        </div>
+                </div>
+                <div class="work-item" onclick="window.open('portfolio.html', '_self')">
+                    <img src="https://via.placeholder.com/300x200/e74c3c/ffffff?text=Project+2" alt="Project 2">
+                    <div class="work-content">
+                        <h3 class="work-title">Another Project</h3>
+                        <p class="work-desc">Another cool project showcasing your skills and creativity.</p>
                     </div>
-                    <div class="work-item" onclick="window.open('portfolio.html', '_self')">
-                        <img src="https://via.placeholder.com/300x200/f39c12/ffffff?text=Project+3" alt="Project 3">
-                        <div class="work-content">
-                            <h3 class="work-title">Third Project</h3>
-                            <p class="work-desc">A third example of your work demonstrating different skills.</p>
+                </div>
+                <div class="work-item" onclick="window.open('portfolio.html', '_self')">
+                    <img src="https://via.placeholder.com/300x200/f39c12/ffffff?text=Project+3" alt="Project 3">
+                    <div class="work-content">
+                        <h3 class="work-title">Third Project</h3>
+                        <p class="work-desc">A third example of your work demonstrating different skills.</p>
                     </div>
-                </section>
-         </footer>        
-    </body>
+                </div>
+            </div>
+        </section>
+    </footer>        
+</body>
 </html>

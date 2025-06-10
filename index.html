@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Izabella Hermogenes] - Designer & Developer</title>
+    <title>About [Izabella Hermogenes] </title>
     <style>
         * {
             margin: 0;
@@ -17,6 +17,7 @@
             color: #333;
             background-color: #f8f8f8;
         }
+
 
         /* Navigation */
         .nav {
@@ -33,7 +34,7 @@
             max-width: 1400px;
             margin: 0 auto;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             padding: 0 40px;
             height: 70px;
@@ -42,22 +43,28 @@
 
         .logo {
             color: white;
-            font-size: 2rem;
+            font-size: 1.2rem;
             font-weight: bold;
             text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border: 2px solid white;
             border-radius: 50%;
         }
-        
+
+        .nav-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 20px;
+            gap: 50px;
             align-items: center;
         }
 
@@ -70,7 +77,7 @@
             padding: 10px 0;
             position: relative;
         }
-
+        
         .nav-link:hover,
         .nav-link.active {
             color: white;
@@ -92,8 +99,6 @@
         }
 
         .social-links {
-            position: absolute;
-            right: 40px;
             display: flex;
             gap: 20px;
         }
@@ -109,244 +114,156 @@
             color: #00d4ff;
             transform: translateY(-2px);
         }
-
+        
         /* Main Content */
         .main-content {
             margin-top: 70px;
-            min-height: calc(100vh - 70px);
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 80px 0;
+            padding: 60px 0;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 40px;
-            width: 100%;
+            padding: 0 20px;
         }
 
-        .hero-section {
+        .about-section {
             display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 60px;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
             align-items: center;
-            justify-items: center;
-            position: relative;
-            width: 100%;
         }
 
-        /* Left Side - Designer */
-        .designer-section {
-            text-align: right;
-            padding-right: 40px;
-            justify-self: end;
+        .text-content {
+            max-width: 500px;
         }
 
-        .designer-title {
+        .about-title {
             font-size: 4rem;
             font-weight: 300;
-            color: #2c3e50;
-            margin-bottom: 20px;
+            color: #2c2c2c;
+            margin-bottom: 30px;
             letter-spacing: -0.02em;
         }
 
-        .designer-desc {
-            font-size: 1.1rem;
-            color: #7f8c8d;
+        .intro-text {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 25px;
             line-height: 1.6;
-            max-width: 300px;
-            margin-left: auto;
         }
 
-        /* Center Image */
+        .description {
+            font-size: 1.1rem;
+            color: #777;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        /* Profile Image Container */
         .image-container {
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 10;
         }
 
         .profile-image {
-            width: 500px;
-            height: 600px;
+            width: 400px;
+            height: 500px;
             object-fit: cover;
             border-radius: 20px;
             position: relative;
             z-index: 2;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-        }
-
-
-
-        /* Right Side - Coder */
-        .coder-section {
-            text-align: left;
-            padding-left: 40px;
-            position: relative;
-            justify-self: start;
-        }
-
-        .coder-title {
-            font-size: 4rem;
-            font-weight: 300;
-            color: #2c3e50;
-            margin-bottom: 20px;
-            letter-spacing: -0.02em;
-        }
-
-        .coder-title::before {
-            content: '<';
-            color: #e74c3c;
-        }
-
-        .coder-title::after {
-            content: '>';
-            color: #e74c3c;
-        }
-
-        .coder-desc {
-            font-size: 1.1rem;
-            color: #7f8c8d;
-            line-height: 1.6;
-            max-width: 300px;
-        }
-
-        /* Code snippets background */
-        .code-bg {
-            position: absolute;
-            top: 50%;
-            right: -20px;
-            transform: translateY(-50%);
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            color: #bdc3c7;
-            opacity: 0.3;
-            line-height: 1.4;
-            z-index: 1;
-        }
-
-        /* Portfolio Section */
-        .portfolio-preview {
-            margin-top: 120px;
-            text-align: center;
-            padding: 0 40px;
-        }
-
-        .portfolio-title {
-            font-size: 1.2rem;
-            color: #7f8c8d;
-            margin-bottom: 40px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .work-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .work-item {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            cursor: pointer;
         }
 
-        .work-item:hover {
+        /* Skills Section */
+        .skills-section {
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .skills-title {
+            font-size: 2rem;
+            color: #2c2c2c;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .skills-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .skill-item {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .skill-item:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
         }
 
-        .work-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .work-content {
-            padding: 25px;
-        }
-
-        .work-title {
-            font-size: 1.3rem;
-            color: #2c3e50;
+        .skill-item h3 {
+            color: #2c2c2c;
+            font-size: 1.2rem;
             margin-bottom: 10px;
             font-weight: 500;
         }
 
-        .work-desc {
-            color: #7f8c8d;
+        .skill-item p {
+            color: #666;
             font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        /* Footer */
-        .footer {
-            background: #f8f9fa;
-            padding: 60px 0;
-            margin-top: 80px;
         }
 
         /* Responsive Design */
-        @media (max-width: 1200px) {
-            .hero-section {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                text-align: center;
-            }
-
-            .designer-section,
-            .coder-section {
-                text-align: center;
-                padding: 0;
-                justify-self: center;
-            }
-
-            .designer-desc,
-            .coder-desc {
-                margin: 0 auto;
-            }
-
-            .profile-image {
-                width: 400px;
-                height: 500px;
-            }
-        }
-
         @media (max-width: 768px) {
-            .nav-menu {
-                gap: 20px;
-            }
-
-            .social-links {
-                position: relative;
-                right: auto;
-                margin-top: 20px;
-            }
-
             .nav-container {
                 flex-direction: column;
                 height: auto;
                 padding: 20px;
             }
 
+            .nav-center {
+                position: relative;
+                left: auto;
+                transform: none;
+                margin-bottom: 10px;
+            }
+
+            .nav-menu {
+                gap: 20px;
+                flex-direction: column;
+            }
+
+            .social-links {
+                margin-top: 10px;
+            }
+
             .main-content {
                 margin-top: 120px;
             }
 
-            .designer-title,
-            .coder-title {
-                font-size: 2.5rem;
+            .about-section {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .about-title {
+                font-size: 3rem;
             }
 
             .profile-image {
@@ -354,20 +271,25 @@
                 height: 400px;
             }
 
-            .container {
-                padding: 0 20px;
+            .skills-grid {
+                gap: 20px;
+            }
+
+            .skill-item {
+                min-width: 150px;
+                padding: 20px 30px;
             }
         }
 
         /* Loading animation */
         .main-content {
-            animation: fadeIn 1.2s ease-in;
+            animation: fadeIn 1s ease-in;
         }
 
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(40px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -377,15 +299,20 @@
     </style>
 </head>
 <body>
+    
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
             <a href='#' class="logo">IH</a>
-            <ul class="nav-menu">
-                <li><a href="about.html" class="nav-link active">about</a></li>
-                <li><a href="portfolio.html" class="nav-link">portfolio</a></li>
-                <li><a href="contact.html" class="nav-link">contact</a></li>
-            </ul>
+
+            <div class="nav-center">
+                <ul class="nav-menu">
+                    <li><a href="about.html" class="nav-link active">about</a></li>
+                    <li><a href="portfolio.html" class="nav-link">portfolio</a></li>
+                    <li><a href="contact.html" class="nav-link">contact</a></li>
+                </ul>
+            </div>
+
             <div class="social-links">
                 <a href="https://linkedin.com/in/izabella-hermogenes/" class="social-link" target="_blank" title="LinkedIn">💼</a>
                 <a href="https://instagram.com/izahermogenes" class="social-link" target="_blank" title="Instagram">📷</a>

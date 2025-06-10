@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About [Izabella Hermogenes] - [Your Title/Role]</title>
+    <title>About [Izabella Hermogenes] </title>
     <style>
         * {
             margin: 0;
@@ -30,13 +30,14 @@
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 0 20px;
+            padding: 0 40px;
             height: 70px;
+            position: relative;
         }
 
         .logo {
@@ -64,16 +65,35 @@
             color: #ccc;
             text-decoration: none;
             font-size: 1rem;
-            transition: color 0.3s ease;
+            font-weight: 400;
+            transition: all 0.3s ease;
             padding: 10px 0;
+            position: relative;
         }
-
+        
         .nav-link:hover,
         .nav-link.active {
             color: white;
         }
 
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #00d4ff;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
         .social-links {
+            position: absolute;
+            right: 40px;
             display: flex;
             gap: 20px;
         }
@@ -81,13 +101,15 @@
         .social-link {
             color: #ccc;
             font-size: 1.2rem;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            text-decoration: none;
         }
 
         .social-link:hover {
-            color: white;
+            color: #00d4ff;
+            transform: translateY(-2px);
         }
-
+        
         /* Main Content */
         .main-content {
             margin-top: 70px;
@@ -257,13 +279,11 @@
                 <li><a href="#" class="nav-link active">about</a></li>
                 <li><a href="#" class="nav-link">portfolio</a></li>
                 <li><a href="#" class="nav-link">contact</a></li>
-            </ul>
-            <div class="social-links">
                 <a href="https://linkedin.com/in/izabella-hermogenes/" class="social-link" target="_blank" title="LinkedIn">💼</a>
                 <a href="https://instagram.com/izahermogenes" class="social-link" target="_blank" title="Instagram">📷</a>
                 <a href="https://www.tiktok.com/@saaabdh" class="social-link" target="_blank" title="TikTok">🎵</a>
-            </div>
-        </div>
+            </ul>
+         </div>
     </nav>
 
     <!-- Main Content -->

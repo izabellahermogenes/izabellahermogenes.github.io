@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Your Name] - Designer & Developer</title>
+    <title>[Izabella Hermogenes] - Designer & Developer</title>
     <style>
         * {
             margin: 0;
@@ -115,11 +115,12 @@
 
         .hero-section {
             display: grid;
-            grid-template-columns: 1fr 600px 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 60px;
             align-items: center;
             position: relative;
         }
+
 
         /* Left Side - Designer */
         .designer-section {
@@ -226,40 +227,41 @@
         }
 
         .splash-1 {
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
-            top: 15%;
-            left: -10%;
-            animation-delay: 0s;
-        }
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(45deg, #ff6b6b, #feca57);
+    top: 15%;
+    left: 0; /* changed from -10% */
+    animation-delay: 0s;
+}
 
-        .splash-2 {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(45deg, #48dbfb, #0abde3);
-            top: 30%;
-            right: -5%;
-            animation-delay: 2s;
-        }
+.splash-2 {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(45deg, #48dbfb, #0abde3);
+    top: 30%;
+    right: 0; /* changed from -5% */
+    animation-delay: 2s;
+}
 
-        .splash-3 {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(45deg, #ff9ff3, #f368e0);
-            bottom: 25%;
-            left: -5%;
-            animation-delay: 4s;
-        }
+.splash-3 {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, #ff9ff3, #f368e0);
+    bottom: 25%;
+    left: 0; /* changed from -5% */
+    animation-delay: 4s;
+}
 
-        .splash-4 {
-            width: 90px;
-            height: 90px;
-            background: linear-gradient(45deg, #a8e6cf, #7fcdcd);
-            bottom: 40%;
-            right: -8%;
-            animation-delay: 1s;
-        }
+.splash-4 {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(45deg, #a8e6cf, #7fcdcd);
+    bottom: 40%;
+    right: 0; /* changed from -8% */
+    animation-delay: 1s;
+}
+
 
         /* Face paint effect */
         .face-paint {
@@ -430,15 +432,13 @@
         <div class="nav-container">
             <ul class="nav-menu">
                 <li><a href="about.html" class="nav-link active">about</a></li>
-                <li><a href="learn.html" class="nav-link">learn</a></li>
                 <li><a href="portfolio.html" class="nav-link">portfolio</a></li>
-                <li><a href="blog.html" class="nav-link">blog</a></li>
                 <li><a href="contact.html" class="nav-link">contact</a></li>
             </ul>
             <div class="social-links">
-                <a href="https://linkedin.com/in/yourprofile" class="social-link" target="_blank" title="LinkedIn">💼</a>
-                <a href="https://instagram.com/yourusername" class="social-link" target="_blank" title="Instagram">📷</a>
-                <a href="https://tiktok.com/@yourusername" class="social-link" target="_blank" title="TikTok">🎵</a>
+                <a href="https://linkedin.com/in/izabella-hermogenes/" class="social-link" target="_blank" title="LinkedIn">💼</a>
+                <a href="https://instagram.com/izahermogenes" class="social-link" target="_blank" title="Instagram">📷</a>
+                <a href="https://www.tiktok.com/@saaabdh" class="social-link" target="_blank" title="TikTok">🎵</a>
             </div>
         </div>
     </nav>
@@ -489,11 +489,6 @@
     </main>
 <footer class="footer">
     <section class="portfolio-preview">
-        <h2 class="portfolio-title">Some of my latest work</h2>
-        <div class="work-grid">
-               <!-- Portfolio Preview -->
-            <section class="portfolio-preview">
-                <h2 class="portfolio-title">Some of my latest work</h2>
                 <div class="work-grid">
                     <div class="work-item" onclick="window.open('portfolio.html', '_self')">
                         <img src="https://via.placeholder.com/300x200/3498db/ffffff?text=Project+1" alt="Project 1">
@@ -514,9 +509,8 @@
                         <div class="work-content">
                             <h3 class="work-title">Third Project</h3>
                             <p class="work-desc">A third example of your work demonstrating different skills.</p>
-        </div>
-    </section>
- </footer>
-        
-</body>
+                    </div>
+                </section>
+         </footer>        
+    </body>
 </html>

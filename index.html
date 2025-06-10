@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>izabella hermogenesr</title>
+    <title>[Your Name] - Designer & Developer</title>
     <style>
         * {
             margin: 0;
@@ -15,7 +15,7 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: #ffffff;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
         }
 
@@ -208,6 +208,86 @@
             box-shadow: 0 20px 60px rgba(0,0,0,0.2);
         }
 
+        /* Paint splash effects */
+        .paint-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .paint-splash {
+            position: absolute;
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .splash-1 {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            top: 15%;
+            left: -10%;
+            animation-delay: 0s;
+        }
+
+        .splash-2 {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #48dbfb, #0abde3);
+            top: 30%;
+            right: -5%;
+            animation-delay: 2s;
+        }
+
+        .splash-3 {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #ff9ff3, #f368e0);
+            bottom: 25%;
+            left: -5%;
+            animation-delay: 4s;
+        }
+
+        .splash-4 {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(45deg, #a8e6cf, #7fcdcd);
+            bottom: 40%;
+            right: -8%;
+            animation-delay: 1s;
+        }
+
+        /* Face paint effect */
+        .face-paint {
+            position: absolute;
+            top: 20%;
+            left: 45%;
+            width: 200px;
+            height: 300px;
+            background: linear-gradient(45deg, 
+                rgba(255, 107, 107, 0.8) 0%,
+                rgba(72, 219, 251, 0.8) 30%,
+                rgba(254, 202, 87, 0.8) 60%,
+                rgba(255, 159, 243, 0.8) 100%);
+            border-radius: 50%;
+            filter: blur(2px);
+            z-index: 4;
+            mix-blend-mode: multiply;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-25px) rotate(180deg);
+            }
+        }
+
         /* Portfolio Section */
         .portfolio-preview {
             margin-top: 120px;
@@ -350,13 +430,15 @@
         <div class="nav-container">
             <ul class="nav-menu">
                 <li><a href="about.html" class="nav-link active">about</a></li>
+                <li><a href="learn.html" class="nav-link">learn</a></li>
                 <li><a href="portfolio.html" class="nav-link">portfolio</a></li>
+                <li><a href="blog.html" class="nav-link">blog</a></li>
                 <li><a href="contact.html" class="nav-link">contact</a></li>
             </ul>
             <div class="social-links">
-                <a href="https://www.linkedin.com/in/izabella-hermogenes/" class="social-link" target="_blank" title="LinkedIn">💼</a>
-                <a href="https://instagram.com/izahermogenes" class="social-link" target="_blank" title="Instagram">📷</a>
-                <a href="https://www.tiktok.com/@saaabdh" class="social-link" target="_blank" title="TikTok">🎵</a>
+                <a href="https://linkedin.com/in/yourprofile" class="social-link" target="_blank" title="LinkedIn">💼</a>
+                <a href="https://instagram.com/yourusername" class="social-link" target="_blank" title="Instagram">📷</a>
+                <a href="https://tiktok.com/@yourusername" class="social-link" target="_blank" title="TikTok">🎵</a>
             </div>
         </div>
     </nav>

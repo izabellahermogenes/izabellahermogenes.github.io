@@ -502,7 +502,6 @@
                 </p>
             </section>
 
-            <!-- Filter Tabs -->
             <div class="filter-tabs">
                 <button class="filter-tab active" data-filter="all">All Projects</button>
                 <button class="filter-tab" data-filter="web">App/Web Development</button>
@@ -510,9 +509,27 @@
                 <button class="filter-tab" data-filter="photography">Visualization</button>
             </div>
 
-            <!-- Portfolio Grid -->
             <div class="portfolio-grid">
-                <!-- Web Development Projects -->
+                <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-image web">
+                        <img src="images/whatsapp.jpeg" alt="WhatsApp Screenshot">
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">App/Web Development</span>
+                        <h3 class="portfolio-item-title">WhatsApp Clone</h3>
+                        <p class="portfolio-description">
+                            A front-end messaging app replica with interactive real-time chat UI, designed with a sleek WhatsApp-inspired interface.
+                        </p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">React Native</span>
+                            <span class="portfolio-tag">Typescript</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://github.com/izabellahermogenes/WhatsAppClone" class="portfolio-link">GitHub →</a>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="portfolio-item" data-category="web">
                     <div class="portfolio-image web">
                         <img src="images/bemoscreenshot.png" alt="bemo Screenshot">
@@ -530,14 +547,13 @@
                             <span class="portfolio-tag">Mobile Development</span>
                         </div>
                         <div class="portfolio-links">
-                            <a href="#" class="portfolio-link">GitHub →</a>
+                            <a href="https://izabellahermogenes.github.io/" class="portfolio-link">GitHub →</a>
                         </div>
                     </div>
                 </div>
 
 
                 
-                <!-- Design Projects -->
                 <div class="portfolio-item" data-category="visualization">
                     <div class="portfolio-image visualization">
                           <img src="images/powerbi.png" alt="Power BI Screenshot">
@@ -558,7 +574,6 @@
                     </div>
                 </div>
 
-                <!-- Visualization Projects -->
                 <div class="portfolio-item" data-category="visualization">
                     <div class="portfolio-image photography">
                         <img src="images/1747615460995.jpeg" alt="To-Do List App Screenshot">
@@ -578,7 +593,6 @@
                     </div>
                 </div>
 
-                <!-- Web Development Project 2 -->
                 <div class="portfolio-item" data-category="web">
                     <div class="portfolio-image web">
                         <img src="images/homepage.png" alt="homepage Screenshot">
@@ -595,37 +609,12 @@
                             <span class="portfolio-tag">GitHub</span>
                         </div>
                         <div class="portfolio-links">
-                            <a href="#" class="portfolio-link">GitHub →</a>
+                            <a href="https://github.com/izabellahermogenes/izabellahermogenes.github.io" class="portfolio-link">GitHub →</a>
                             <a href="#" class="portfolio-link">View Project →</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Design Project 2 -->
-                <div class="portfolio-item" data-category="design">
-                    <div class="portfolio-image design">
-                        <div class="image-placeholder">📱</div>
-                    </div>
-                    <div class="portfolio-content">
-                        <span class="portfolio-category">Design</span>
-                        <h3 class="portfolio-item-title">Mobile App UI/UX</h3>
-                        <p class="portfolio-description">
-                            User interface and experience design for a wellness tracking mobile app, focusing on intuitive navigation and calming visual aesthetics.
-                        </p>
-                        <div class="portfolio-tags">
-                            <span class="portfolio-tag">UI/UX</span>
-                            <span class="portfolio-tag">Mobile Design</span>
-                            <span class="portfolio-tag">Prototyping</span>
-                            <span class="portfolio-tag">User Research</span>
-                        </div>
-                        <div class="portfolio-links">
-                            <a href="#" class="portfolio-link">View Prototype →</a>
-                            <a href="#" class="portfolio-link">Case Study →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- To-Do List Project -->
                 <div class="portfolio-item" data-category="web">
                     <div class="portfolio-image web">
                           <img src="images/todolistscreenshot.png" alt="To-Do List App Screenshot">
@@ -643,13 +632,12 @@
                             <span class="portfolio-tag">Expo</span>
                         </div>
                         <div class="portfolio-links">
-                            <a href="#" class="portfolio-link">View App →</a>
+                            <a href="https://github.com/izabellahermogenes/ToDoApp" class="portfolio-link">GitHub →</a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- CTA Section -->
             <section class="cta-section">
                 <h2 class="cta-title">Let's create something amazing together</h2>
                 <p class="cta-text">
@@ -661,15 +649,12 @@
     </main>
 
     <script>
-        // Portfolio filtering functionality
         const filterTabs = document.querySelectorAll('.filter-tab');
         const portfolioItems = document.querySelectorAll('.portfolio-item');
 
         filterTabs.forEach(tab => {
             tab.addEventListener('click', () => {
-                // Remove active class from all tabs
                 filterTabs.forEach(t => t.classList.remove('active'));
-                // Add active class to clicked tab
                 tab.classList.add('active');
 
                 const filterValue = tab.getAttribute('data-filter');
@@ -685,7 +670,6 @@
             });
         });
 
-        // Add staggered animation for initial load
         portfolioItems.forEach((item, index) => {
             item.style.animationDelay = `${index * 0.1}s`;
         });

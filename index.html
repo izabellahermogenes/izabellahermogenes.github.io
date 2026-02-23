@@ -18,7 +18,6 @@
             background-color: #f8f8f8;
         }
 
-        /* Navigation */
         .nav {
             background-color: #2c2c2c;
             padding: 0;
@@ -113,7 +112,6 @@
             color: white;
             transform: translateY(-2px);
         }
-        
 
         .main-content {
             margin-top: 70px;
@@ -129,7 +127,7 @@
             padding: 0 20px;
         }
 
-        /* Hero Section with Three Column Layout */
+        /* ── HERO ── */
         .hero-section {
             display: grid;
             grid-template-columns: 1fr auto 1fr;
@@ -139,6 +137,8 @@
         }
 
         .designer-section {
+            position: relative;
+            height: 500px;
             display: flex;
             flex-direction: column;
             align-items: flex-end;
@@ -146,21 +146,36 @@
         }
 
         .designer-title {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
             font-size: 4rem;
             font-weight: 300;
             color: #2c2c2c;
-            margin-bottom: 20px;
             letter-spacing: -0.02em;
+            line-height: 1;
+            right: 0;
         }
 
         .designer-desc {
-            font-size: 1.2rem;
+            position: absolute;
+            top: calc(50% + 60px);
+            right: 0;
+            font-size: 1.1rem;
             color: #666;
-            max-width: 250px;
-            line-height: 1.6;
+            line-height: 2;
+            list-style: none;
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .designer-desc li::before {
+            content: "• ";
         }
 
         .coder-section {
+            position: relative;
+            height: 500px;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
@@ -168,21 +183,32 @@
         }
 
         .coder-title {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
             font-size: 4rem;
             font-weight: 300;
             color: #2c2c2c;
-            margin-bottom: 20px;
             letter-spacing: -0.02em;
+            line-height: 1;
         }
 
-        .coder-desc {
-            font-size: 1.2rem;
-            color: #666;
-            max-width: 250px;
-            line-height: 1.6;
+        .skills-logos {
+            position: absolute;
+            top: calc(50% + 60px);
+            display: grid;
+            grid-template-columns: repeat(5, 54px);
+            gap: 12px;
+            align-items: center;
+            justify-items: center;
         }
 
-        /* Profile Image Container */
+        .skills-logos img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
         .image-container {
             position: relative;
             display: flex;
@@ -195,12 +221,9 @@
             height: 500px;
             object-fit: cover;
             border-radius: 20px;
-            position: relative;
-            z-index: 2;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
-        /* Footer with Portfolio Preview */
         .footer {
             background-color: white;
             padding: 80px 0;
@@ -221,9 +244,6 @@
             font-weight: 300;
         }
 
-        
-
-        
         .work-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -267,7 +287,6 @@
             line-height: 1.6;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
@@ -344,16 +363,15 @@
         }
 
         footer {
-                font-size: 12px;
-                padding: 5px 45px;
-                text-align: left;
-                color: #666; /* slightly lighter than #333 for a subtle look */
+            font-size: 12px;
+            padding: 5px 45px;
+            text-align: left;
+            color: #666;
         }
 
     </style>
 </head>
 <body>
-    
 
     <nav class="nav">
         <div class="nav-container">
@@ -368,84 +386,77 @@
             </div>
 
             <div class="social-links">
-
-                 <a href="https://github.com/izabellahermogenes" class="social-link" target="_blank" title="GitHub">
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github">
-    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 
-    5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 
-    5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-  </svg>
-</a>
+                <a href="https://github.com/izabellahermogenes" class="social-link" target="_blank" title="GitHub">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                  </svg>
+                </a>
                 <a href="https://linkedin.com/in/izabella-hermogenes/" class="social-link" target="_blank" title="LinkedIn">
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin-icon lucide-linkedin">
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-    <rect width="4" height="12" x="2" y="9"/>
-    <circle cx="4" cy="4" r="2"/>
-  </svg>
-</a>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                    <rect width="4" height="12" x="2" y="9"/>
+                    <circle cx="4" cy="4" r="2"/>
+                  </svg>
+                </a>
                 <a href="https://instagram.com/izahermogenes" class="social-link" target="_blank" title="Instagram">
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram-icon lucide-instagram">
-    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
-  </svg>
-</a>
-
-              <a href="https://www.tiktok.com/@saaabdh" class="social-link" target="_blank" title="TikTok">
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16.8217 5.1344C16.0886 4.29394 15.6479 3.19805 15.6479 2H14.7293M16.8217 5.1344C17.4898 5.90063 18.3944 6.45788 19.4245 6.67608C19.7446 6.74574 20.0786 6.78293 20.4266 6.78293V10.2191C18.645 10.2191 16.9932 9.64801 15.6477 8.68211V15.6707C15.6477 19.1627 12.8082 22 9.32386 22C7.50043 22 5.85334 21.2198 4.69806 19.98C3.64486 18.847 2.99994 17.3331 2.99994 15.6707C2.99994 12.2298 5.75592 9.42509 9.17073 9.35079M16.8217 5.1344C16.8039 5.12276 16.7861 5.11101 16.7684 5.09914M6.9855 17.3517C6.64217 16.8781 6.43802 16.2977 6.43802 15.6661C6.43802 14.0734 7.73249 12.7778 9.32394 12.7778C9.62087 12.7778 9.9085 12.8288 10.1776 12.9124V9.40192C9.89921 9.36473 9.61622 9.34149 9.32394 9.34149C9.27287 9.34149 8.86177 9.36884 8.81073 9.36884M14.7244 2H12.2097L12.2051 15.7775C12.1494 17.3192 10.8781 18.5591 9.32386 18.5591C8.35878 18.5591 7.50971 18.0808 6.98079 17.3564" stroke="currentColor" stroke-linejoin="round"/>
-  </svg>
-</a>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                  </svg>
+                </a>
+                <a href="https://www.tiktok.com/@saaabdh" class="social-link" target="_blank" title="TikTok">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.8217 5.1344C16.0886 4.29394 15.6479 3.19805 15.6479 2H14.7293M16.8217 5.1344C17.4898 5.90063 18.3944 6.45788 19.4245 6.67608C19.7446 6.74574 20.0786 6.78293 20.4266 6.78293V10.2191C18.645 10.2191 16.9932 9.64801 15.6477 8.68211V15.6707C15.6477 19.1627 12.8082 22 9.32386 22C7.50043 22 5.85334 21.2198 4.69806 19.98C3.64486 18.847 2.99994 17.3331 2.99994 15.6707C2.99994 12.2298 5.75592 9.42509 9.17073 9.35079M16.8217 5.1344C16.8039 5.12276 16.7861 5.11101 16.7684 5.09914M6.9855 17.3517C6.64217 16.8781 6.43802 16.2977 6.43802 15.6661C6.43802 14.0734 7.73249 12.7778 9.32394 12.7778C9.62087 12.7778 9.9085 12.8288 10.1776 12.9124V9.40192C9.89921 9.36473 9.61622 9.34149 9.32394 9.34149C9.27287 9.34149 8.86177 9.36884 8.81073 9.36884M14.7244 2H12.2097L12.2051 15.7775C12.1494 17.3192 10.8781 18.5591 9.32386 18.5591C8.35878 18.5591 7.50971 18.0808 6.98079 17.3564" stroke="currentColor" stroke-linejoin="round"/>
+                  </svg>
+                </a>
             </div>
         </div>
     </nav>
-
 
     <main class="main-content">
         <div class="container">
             <section class="hero-section">
 
+                <!-- Left: name + description -->
                 <div class="designer-section">
                     <h1 class="designer-title">izabella</h1>
-                    <p class="designer-desc">
-                        Data enthusiast and developer, creating insights and apps that matter.
-                    </p>
+                    <ul class="designer-desc">
+                        <li>data analyst</li>
+                        <li>web and application developer</li>
+                    </ul>
                 </div>
 
-           
+                <!-- Center: photo -->
                 <div class="image-container">
                     <img src="images/IMG_1333.jpg" 
-                       alt="Izabella Hermogenes" 
-                      class="profile-image">
-            </div>
-
-    
-                <div class="coder-section">
-    <h1 class="coder-title">hermogenes</h1>
-
-    <!-- Skills Logos -->
-    <div class="skills-logos">
-        <img src="images/logos/html.svg" alt="HTML5" title="HTML5" width="50" height="50">
-        <img src="images/logos/css.svg" alt="CSS" title="CSS">
-        <img src="images/logos/javascript.svg" alt="JavaScript" title="JavaScript">
-        <img src="images/logos/swift.svg" alt="Swift" title="Swift">
-        <img src="images/logos/reactnative.svg" alt="React Native" title="React Native">
-        <img src="images/logos/postgresql.svg" alt="SQL/PostgreSQL" title="SQL/PostgreSQL">
-        <img src="images/logos/powerbi.svg" alt="Power BI" title="Power BI">
-        <img src="images/logos/tableau.svg" alt="Tableau" title="Tableau">
-        <img src="images/logos/xcode.svg" alt="Xcode/iOS" title="Xcode/iOS">
-        <img src="images/logos/aws.svg" alt="AWS" title="AWS">
-        <img src="images/logos/git.svg" alt="Git" title="Git">
-        <img src="images/logos/excel.svg" alt="Excel" title="Excel">
-        <img src="images/logos/vscode.svg" alt="VS Code" title="VS Code">
-    </div>
-</div> 
-                    </p>
+                         alt="Izabella Hermogenes" 
+                         class="profile-image">
                 </div>
+
+                <!-- Right: name + skill icons -->
+                <div class="coder-section">
+                    <h1 class="coder-title">hermogenes</h1>
+                    <div class="skills-logos">
+                        <img src="images/logos/html.svg" alt="HTML5" title="HTML5">
+                        <img src="images/logos/css.svg" alt="CSS" title="CSS">
+                        <img src="images/logos/javascript.svg" alt="JavaScript" title="JavaScript">
+                        <img src="images/logos/swift.svg" alt="Swift" title="Swift">
+                        <img src="images/logos/reactnative.svg" alt="React Native" title="React Native">
+                        <img src="images/logos/postgresql.svg" alt="SQL/PostgreSQL" title="SQL/PostgreSQL">
+                        <img src="images/logos/powerbi.svg" alt="Power BI" title="Power BI">
+                        <img src="images/logos/tableau.svg" alt="Tableau" title="Tableau">
+                        <img src="images/logos/xcode.svg" alt="Xcode/iOS" title="Xcode/iOS">
+                        <img src="images/logos/aws.svg" alt="AWS" title="AWS">
+                        <img src="images/logos/git.svg" alt="Git" title="Git">
+                        <img src="images/logos/excel.svg" alt="Excel" title="Excel">
+                        <img src="images/logos/vscode.svg" alt="VS Code" title="VS Code">
+                    </div>
+                </div>
+
             </section>
         </div>
     </main>
-
 
     <footer class="footer">
         <section class="portfolio-preview">
@@ -470,17 +481,16 @@
                         <img src="images/todolistscreenshot.png" alt="Project 3">
                         <div class="work-content">
                             <h3 class="work-title">To-Do List App</h3>
-                            <p class="work-desc">A clean, no-nonsense task manager built with React. Add your goals. Tap to slay. Delete the chaos.</p>      
+                            <p class="work-desc">A clean, no-nonsense task manager built with React. Add your goals. Tap to slay. Delete the chaos.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-    </footer>        
+    </footer>
     <footer>
-    <footer>
-    ©️ 2025 Izabella Hermogenes
-  </footer>
-  </footer>
+        ©️ 2025 Izabella Hermogenes
+    </footer>
+
 </body>
 </html>

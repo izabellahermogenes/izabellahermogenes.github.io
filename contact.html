@@ -3,401 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact [Izabella Hermogenes] </title>
+    <title>Contact [Izabella Hermogenes]</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f8f8;
-        }
-
-        /* Navigation */
-        .nav {
-            background-color: #2c2c2c;
-            padding: 0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 40px;
-            height: 70px;
-            position: relative;
-        }
-
-        .logo {
-            color: white;
-            font-size: 1.2rem;
-            font-weight: bold;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border: 2px solid white;
-            border-radius: 50%;
-        }
-
-        .nav-center {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .nav-link {
-            color: #ccc;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 400;
-            transition: all 0.3s ease;
-            padding: 10px 0;
-            position: relative;
-        }
-        
-        .nav-link:hover,
-        .nav-link.active {
-            color: white;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #333;
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .social-link {
-            color: #ccc;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .social-link:hover {
-            color: #333;
-            transform: translateY(-2px);
-        }
-        
-        /* Main Content */
-        .main-content {
-            margin-top: 70px;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 60px 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .contact-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: start;
-        }
-
-        .contact-info {
-            max-width: 500px;
-        }
-
-        .contact-title {
-            font-size: 4rem;
-            font-weight: 300;
-            color: #2c2c2c;
-            margin-bottom: 30px;
-            letter-spacing: -0.02em;
-        }
-
-        .contact-intro {
-            font-size: 1.3rem;
-            color: #666;
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-
-        .contact-methods {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        .contact-method {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 20px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .contact-method:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        .contact-icon {
-            width: 40px;
-            height: 40px;
-            background: #333;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            color: white;
-            flex-shrink: 0;
-        }
-
-        .contact-details h3 {
-            font-size: 1.1rem;
-            color: #2c2c2c;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-
-        .contact-details p {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        .contact-details a {
-            color: #333;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-details a:hover {
-            color: #000;
-        }
-
-        /* Contact Form */
-        .contact-form {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .form-title {
-            font-size: 2rem;
-            color: #2c2c2c;
-            margin-bottom: 30px;
-            font-weight: 300;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-            background: #f9f9f9;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #333;
-            box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.1);
-            background: white;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 15px;
-            background: #333;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            margin-top: 10px;
-        }
-
-        .submit-btn:hover {
-            background: #000;
-            transform: translateY(-2px);
-        }
-
-        .submit-btn:active {
-            transform: translateY(0);
-        }
-
-        .submit-btn:disabled {
-            background: #999;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        /* Response Message */
-        .response-message {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            font-weight: 500;
-            display: none;
-        }
-
-        .response-message.success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-
-        .response-message.error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-
-        /* Responsive Design */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; line-height: 1.6; color: #333; background-color: #f8f8f8; }
+        .nav { background-color: #2c2c2c; padding: 0; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 40px; height: 70px; position: relative; }
+        .logo { color: white; font-size: 1.2rem; font-weight: bold; text-decoration: none; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 2px solid white; border-radius: 50%; }
+        .nav-center { position: absolute; left: 50%; transform: translateX(-50%); }
+        .nav-menu { display: flex; list-style: none; gap: 50px; align-items: center; }
+        .nav-link { color: #ccc; text-decoration: none; font-size: 1rem; font-weight: 400; transition: all 0.3s ease; padding: 10px 0; position: relative; }
+        .nav-link:hover, .nav-link.active { color: white; }
+        .nav-link::after { content: ''; position: absolute; bottom: 5px; left: 0; width: 0; height: 2px; background: white; transition: width 0.3s ease; }
+        .nav-link:hover::after { width: 100%; }
+        .social-links { display: flex; gap: 20px; }
+        .social-link { color: #ccc; transition: all 0.3s ease; text-decoration: none; }
+        .social-link:hover { color: white; transform: translateY(-2px); }
+        .main-content { margin-top: 70px; min-height: 100vh; display: flex; align-items: center; padding: 60px 0; animation: fadeIn 1s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .contact-section { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+        .contact-info { max-width: 500px; }
+        .contact-title { font-size: 4rem; font-weight: 300; color: #2c2c2c; margin-bottom: 30px; letter-spacing: -0.02em; }
+        .contact-intro { font-size: 1.3rem; color: #666; margin-bottom: 40px; line-height: 1.6; }
+        .contact-methods { display: flex; flex-direction: column; gap: 25px; }
+        .contact-method { display: flex; align-items: center; gap: 15px; padding: 20px; background: white; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .contact-method:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+        .contact-icon { width: 40px; height: 40px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: white; flex-shrink: 0; }
+        .contact-details h3 { font-size: 1.1rem; color: #2c2c2c; margin-bottom: 5px; font-weight: 500; }
+        .contact-details p { color: #666; font-size: 0.95rem; }
+        .contact-details a { color: #333; text-decoration: none; transition: color 0.3s ease; }
+        .contact-details a:hover { color: #000; }
+        .contact-form { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .form-title { font-size: 2rem; color: #2c2c2c; margin-bottom: 30px; font-weight: 300; }
+        .form-group { margin-bottom: 25px; }
+        .form-group label { display: block; margin-bottom: 8px; color: #333; font-weight: 500; font-size: 0.95rem; }
+        .form-group input, .form-group textarea { width: 100%; padding: 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1rem; font-family: inherit; transition: border-color 0.3s ease, box-shadow 0.3s ease; background: #f9f9f9; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #333; box-shadow: 0 0 0 3px rgba(51,51,51,0.1); background: white; }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .submit-btn { width: 100%; padding: 15px; background: #333; color: white; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 500; cursor: pointer; transition: background-color 0.3s ease, transform 0.3s ease; margin-top: 10px; }
+        .submit-btn:hover { background: #000; transform: translateY(-2px); }
+        .submit-btn:disabled { background: #999; cursor: not-allowed; transform: none; }
+        .response-message { margin-top: 20px; padding: 15px; border-radius: 10px; text-align: center; font-weight: 500; display: none; }
+        .response-message.success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .response-message.error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        footer { font-size: 12px; padding: 5px 86px; text-align: left; color: #666; }
         @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                height: auto;
-                padding: 20px;
-            }
-
-            .nav-center {
-                position: relative;
-                left: auto;
-                transform: none;
-                margin-bottom: 10px;
-            }
-
-            .nav-menu {
-                gap: 20px;
-                flex-direction: column;
-            }
-
-            .social-links {
-                margin-top: 10px;
-            }
-
-            .main-content {
-                margin-top: 120px;
-            }
-
-            .contact-section {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .contact-title {
-                font-size: 3rem;
-                text-align: center;
-            }
-
-            .contact-intro {
-                text-align: center;
-            }
-
-            .contact-form {
-                padding: 30px 20px;
-            }
-
-            .form-title {
-                text-align: center;
-            }
+            .nav-container { flex-direction: column; height: auto; padding: 20px; }
+            .nav-center { position: relative; left: auto; transform: none; margin-bottom: 10px; }
+            .nav-menu { gap: 20px; flex-direction: column; }
+            .social-links { margin-top: 10px; }
+            .main-content { margin-top: 120px; }
+            .contact-section { grid-template-columns: 1fr; gap: 40px; }
+            .contact-title { font-size: 3rem; text-align: center; }
+            .contact-intro { text-align: center; }
+            .contact-form { padding: 30px 20px; }
+            .form-title { text-align: center; }
         }
-
-        /* Loading animation */
-        .main-content {
-            animation: fadeIn 1s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        footer {
-                font-size: 12px;
-                padding: 5px 86px;
-                text-align: left;
-                color: #666; /* slightly lighter than #333 for a subtle look */
-        }
-
     </style>
 </head>
 <body>
-    
-    <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
             <a href='index.html' class="logo">IH</a>
-
             <div class="nav-center">
                 <ul class="nav-menu">
                     <li><a href="about.html" class="nav-link">about</a></li>
@@ -405,51 +73,41 @@
                     <li><a href="contact.html" class="nav-link active">contact</a></li>
                 </ul>
             </div>
-
             <div class="social-links">
-
-                 <a href="https://github.com/izabellahermogenes" class="social-link" target="_blank" title="GitHub">
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github">
-    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 
-    5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 
-    5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-  </svg>
-</a>
+                <a href="https://github.com/izabellahermogenes" class="social-link" target="_blank" title="GitHub">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                  </svg>
+                </a>
                 <a href="https://linkedin.com/in/izabella-hermogenes/" class="social-link" target="_blank" title="LinkedIn">
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin-icon lucide-linkedin">
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-    <rect width="4" height="12" x="2" y="9"/>
-    <circle cx="4" cy="4" r="2"/>
-  </svg>
-</a>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                    <rect width="4" height="12" x="2" y="9"/>
+                    <circle cx="4" cy="4" r="2"/>
+                  </svg>
+                </a>
                 <a href="https://instagram.com/izahermogenes" class="social-link" target="_blank" title="Instagram">
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram-icon lucide-instagram">
-    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
-  </svg>
-</a>
-
-              <a href="https://www.tiktok.com/@saaabdh" class="social-link" target="_blank" title="TikTok">
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16.8217 5.1344C16.0886 4.29394 15.6479 3.19805 15.6479 2H14.7293M16.8217 5.1344C17.4898 5.90063 18.3944 6.45788 19.4245 6.67608C19.7446 6.74574 20.0786 6.78293 20.4266 6.78293V10.2191C18.645 10.2191 16.9932 9.64801 15.6477 8.68211V15.6707C15.6477 19.1627 12.8082 22 9.32386 22C7.50043 22 5.85334 21.2198 4.69806 19.98C3.64486 18.847 2.99994 17.3331 2.99994 15.6707C2.99994 12.2298 5.75592 9.42509 9.17073 9.35079M16.8217 5.1344C16.8039 5.12276 16.7861 5.11101 16.7684 5.09914M6.9855 17.3517C6.64217 16.8781 6.43802 16.2977 6.43802 15.6661C6.43802 14.0734 7.73249 12.7778 9.32394 12.7778C9.62087 12.7778 9.9085 12.8288 10.1776 12.9124V9.40192C9.89921 9.36473 9.61622 9.34149 9.32394 9.34149C9.27287 9.34149 8.86177 9.36884 8.81073 9.36884M14.7244 2H12.2097L12.2051 15.7775C12.1494 17.3192 10.8781 18.5591 9.32386 18.5591C8.35878 18.5591 7.50971 18.0808 6.98079 17.3564" stroke="currentColor" stroke-linejoin="round"/>
-  </svg>
-</a>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                  </svg>
+                </a>
+                <a href="https://www.tiktok.com/@saaabdh" class="social-link" target="_blank" title="TikTok">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.8217 5.1344C16.0886 4.29394 15.6479 3.19805 15.6479 2H14.7293M16.8217 5.1344C17.4898 5.90063 18.3944 6.45788 19.4245 6.67608C19.7446 6.74574 20.0786 6.78293 20.4266 6.78293V10.2191C18.645 10.2191 16.9932 9.64801 15.6477 8.68211V15.6707C15.6477 19.1627 12.8082 22 9.32386 22C7.50043 22 5.85334 21.2198 4.69806 19.98C3.64486 18.847 2.99994 17.3331 2.99994 15.6707C2.99994 12.2298 5.75592 9.42509 9.17073 9.35079M16.8217 5.1344C16.8039 5.12276 16.7861 5.11101 16.7684 5.09914M6.9855 17.3517C6.64217 16.8781 6.43802 16.2977 6.43802 15.6661C6.43802 14.0734 7.73249 12.7778 9.32394 12.7778C9.62087 12.7778 9.9085 12.8288 10.1776 12.9124V9.40192C9.89921 9.36473 9.61622 9.34149 9.32394 9.34149C9.27287 9.34149 8.86177 9.36884 8.81073 9.36884M14.7244 2H12.2097L12.2051 15.7775C12.1494 17.3192 10.8781 18.5591 9.32386 18.5591C8.35878 18.5591 7.50971 18.0808 6.98079 17.3564" stroke="currentColor" stroke-linejoin="round"/>
+                  </svg>
+                </a>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main class="main-content">
         <div class="container">
             <section class="contact-section">
-                <!-- Contact Info -->
                 <div class="contact-info">
                     <h1 class="contact-title">contact.</h1>
-                    <p class="contact-intro">
-                        Let's work together to bring your ideas to life. I'm always excited to discuss new projects and opportunities.
-                    </p>
-                    
+                    <p class="contact-intro">Let's work together to bring your ideas to life. I'm always excited to discuss new projects and opportunities.</p>
                     <div class="contact-methods">
                         <div class="contact-method">
                             <div class="contact-icon">📧</div>
@@ -458,7 +116,6 @@
                                 <p><a href="mailto:izabmdh@gmail.com">izabmdh@gmail.com</a></p>
                             </div>
                         </div>
-                        
                         <div class="contact-method">
                             <div class="contact-icon">💼</div>
                             <div class="contact-details">
@@ -466,8 +123,6 @@
                                 <p><a href="https://linkedin.com/in/izabella-hermogenes/" target="_blank">Connect with me professionally</a></p>
                             </div>
                         </div>
-
-                        
                         <div class="contact-method">
                             <div class="contact-icon">⏰</div>
                             <div class="contact-details">
@@ -477,8 +132,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Contact Form -->
                 <div class="contact-form">
                     <h2 class="form-title">Send me a message</h2>
                     <form id="contactForm">
@@ -486,24 +139,19 @@
                             <label for="name">Name *</label>
                             <input type="text" id="name" name="name" required>
                         </div>
-                        
                         <div class="form-group">
                             <label for="email">Email *</label>
                             <input type="email" id="email" name="email" required>
                         </div>
-                        
                         <div class="form-group">
                             <label for="subject">Subject *</label>
                             <input type="text" id="subject" name="subject" required>
                         </div>
-                        
                         <div class="form-group">
                             <label for="message">Message *</label>
                             <textarea id="message" name="message" placeholder="Tell me about your project, timeline, and how I can help..." required></textarea>
                         </div>
-                        
                         <button type="submit" class="submit-btn">Send Message</button>
-                        
                         <div id="responseMessage" class="response-message"></div>
                     </form>
                 </div>
@@ -511,88 +159,36 @@
         </div>
     </main>
 
-    <!-- EmailJS SDK - Updated to latest version -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    
     <script>
-        // Wait for page to load completely
-        document.addEventListener('DOMContentLoaded', function() {
-            
-            // Initialize EmailJS - Updated initialization method
-            emailjs.init({
-                publicKey: "84OeZ5U1fZ0-oidRm" // Your public key
-            });
-
-            // Add debugging to check if EmailJS is loaded
-            console.log('EmailJS loaded:', typeof emailjs !== 'undefined');
-            
-            // Form submission handling
-            document.getElementById('contactForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const responseMessage = document.getElementById('responseMessage');
-                const submitBtn = document.querySelector('.submit-btn');
-                
-                // Validation
-                const name = document.getElementById('name').value.trim();
-                const email = document.getElementById('email').value.trim();
-                const subject = document.getElementById('subject').value.trim();
-                const message = document.getElementById('message').value.trim();
-                
-                if (!name || !email || !subject || !message) {
-                    showMessage('Please fill in all required fields.', 'error');
-                    return;
-                }
-                
-                // Show loading state
-                submitBtn.textContent = 'Sending...';
-                submitBtn.disabled = true;
-                
-                // Prepare template parameters
-                const templateParams = {
-                    from_name: name,
-                    from_email: email,
-                    subject: subject,
-                    message: message,
-                    to_name: 'Izabella Hermogenes'
-                };
-                
-                console.log('Sending email with params:', templateParams);
-                
-                // Send email using EmailJS - Updated method
-                emailjs.send('service_a0o7rhk', 'template_u0dvo8k', templateParams)
-                    .then(function(response) {
-                        console.log('SUCCESS!', response.status, response.text);
-                        showMessage('Thank you for your message! I\'ll get back to you soon.', 'success');
-                        document.getElementById('contactForm').reset();
-                    })
-                    .catch(function(error) {
-                        console.error('FAILED...', error);
-                        showMessage('Sorry, there was an error sending your message. Please try again or contact me directly at izabmdh@gmail.com.', 'error');
-                    })
-                    .finally(function() {
-                        // Reset button
-                        submitBtn.textContent = 'Send Message';
-                        submitBtn.disabled = false;
-                    });
-            });
-            
-            // Helper function to show messages
-            function showMessage(text, type) {
-                const responseMessage = document.getElementById('responseMessage');
-                responseMessage.textContent = text;
-                responseMessage.className = `response-message ${type}`;
-                responseMessage.style.display = 'block';
-                
-                // Hide message after 5 seconds
-                setTimeout(() => {
-                    responseMessage.style.display = 'none';
-                }, 5000);
-            }
+    document.addEventListener('DOMContentLoaded', function() {
+        emailjs.init("84OeZ5U1fZ0-oidRm");
+        const contactForm = document.getElementById('contactForm');
+        const responseMessage = document.getElementById('responseMessage');
+        const submitBtn = document.querySelector('.submit-btn');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+            if (!name || !email || !subject || !message) { showMessage('Please fill in all required fields.', 'error'); return; }
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            emailjs.send('service_a0o7rhk', 'template_u0dvo8k', { from_name: name, from_email: email, subject: subject, message: message, to_name: 'Izabella Hermogenes' })
+                .then(() => { showMessage("Thank you! I'll get back to you soon.", 'success'); contactForm.reset(); })
+                .catch((error) => { console.error('FAILED...', error); showMessage('Sorry, there was an error. Please email me directly at izabmdh@gmail.com.', 'error'); })
+                .finally(() => { submitBtn.textContent = 'Send Message'; submitBtn.disabled = false; });
         });
+        function showMessage(text, type) {
+            responseMessage.textContent = text;
+            responseMessage.className = `response-message ${type}`;
+            responseMessage.style.display = 'block';
+            setTimeout(() => { responseMessage.style.display = 'none'; }, 5000);
+        }
+    });
     </script>
-    <footer>
-    ©️ 2025 Izabella Hermogenes
-    </footer>
+
+    <footer>©️ 2025 Izabella Hermogenes</footer>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About [Izabella Hermogenes] </title>
+    <title>About Izabella Hermogenes</title>
     <style>
         * {
             margin: 0;
@@ -18,10 +18,9 @@
             background-color: #f8f8f8;
         }
 
-
+        /* Navigation */
         .nav {
             background-color: #2c2c2c;
-            padding: 0;
             position: fixed;
             top: 0;
             width: 100%;
@@ -76,7 +75,7 @@
             padding: 10px 0;
             position: relative;
         }
-        
+
         .nav-link:hover,
         .nav-link.active {
             color: white;
@@ -113,7 +112,7 @@
             color: white;
             transform: translateY(-2px);
         }
-        
+
         /* Main Content */
         .main-content {
             margin-top: 70px;
@@ -121,6 +120,12 @@
             display: flex;
             align-items: center;
             padding: 60px 0;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .container {
@@ -129,6 +134,7 @@
             padding: 0 20px;
         }
 
+        /* About Section */
         .about-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -162,7 +168,7 @@
             margin-bottom: 20px;
         }
 
-        /* Profile Image Container */
+        /* Profile Image */
         .image-container {
             position: relative;
             display: flex;
@@ -175,8 +181,6 @@
             height: 500px;
             object-fit: cover;
             border-radius: 20px;
-            position: relative;
-            z-index: 2;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
@@ -196,7 +200,7 @@
         .skills-grid {
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 60px;
             flex-wrap: wrap;
         }
 
@@ -206,9 +210,11 @@
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            min-width: 200px;
+            min-width: 220px;
             text-align: center;
         }
+
+        .skill-item:nth-child(2) { background: #f5f5f5; } /* subtle distinction */
 
         .skill-item:hover {
             transform: translateY(-10px);
@@ -227,7 +233,15 @@
             font-size: 0.95rem;
         }
 
-        /* Responsive Design */
+        /* Footer */
+        footer {
+            font-size: 12px;
+            padding: 5px 20px;
+            text-align: left;
+            color: #666;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
@@ -271,46 +285,22 @@
             }
 
             .skills-grid {
-                gap: 20px;
+                gap: 30px;
             }
 
             .skill-item {
-                min-width: 150px;
-                padding: 20px 30px;
+                min-width: 180px;
+                padding: 20px 25px;
             }
-        }
-
-        /* Loading animation */
-        .main-content {
-            animation: fadeIn 1s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        footer {
-                font-size: 12px;
-                padding: 5px 86px;
-                text-align: left;
-                color: #666; /* slightly lighter than #333 for a subtle look */
         }
     </style>
 </head>
 <body>
-    
+
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
             <a href="index.html" class="logo">IH</a>
-
             <div class="nav-center">
                 <ul class="nav-menu">
                     <li><a href="about.html" class="nav-link active">about</a></li>
@@ -318,40 +308,11 @@
                     <li><a href="contact.html" class="nav-link">contact</a></li>
                 </ul>
             </div>
-
             <div class="social-links">
-
-                
-
-                <a href="https://github.com/izabellahermogenes" class="social-link" target="_blank" title="GitHub">
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github">
-    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 
-    5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 
-    5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-  </svg>
-</a>
-
-
-                <a href="https://linkedin.com/in/izabella-hermogenes/" class="social-link" target="_blank" title="LinkedIn">
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin-icon lucide-linkedin">
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-    <rect width="4" height="12" x="2" y="9"/>
-    <circle cx="4" cy="4" r="2"/>
-  </svg>
-</a>
-                <a href="https://instagram.com/izahermogenes" class="social-link" target="_blank" title="Instagram">
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram-icon lucide-instagram">
-    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
-  </svg>
-</a>
-
-              <a href="https://www.tiktok.com/@saaabdh" class="social-link" target="_blank" title="TikTok">
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16.8217 5.1344C16.0886 4.29394 15.6479 3.19805 15.6479 2H14.7293M16.8217 5.1344C17.4898 5.90063 18.3944 6.45788 19.4245 6.67608C19.7446 6.74574 20.0786 6.78293 20.4266 6.78293V10.2191C18.645 10.2191 16.9932 9.64801 15.6477 8.68211V15.6707C15.6477 19.1627 12.8082 22 9.32386 22C7.50043 22 5.85334 21.2198 4.69806 19.98C3.64486 18.847 2.99994 17.3331 2.99994 15.6707C2.99994 12.2298 5.75592 9.42509 9.17073 9.35079M16.8217 5.1344C16.8039 5.12276 16.7861 5.11101 16.7684 5.09914M6.9855 17.3517C6.64217 16.8781 6.43802 16.2977 6.43802 15.6661C6.43802 14.0734 7.73249 12.7778 9.32394 12.7778C9.62087 12.7778 9.9085 12.8288 10.1776 12.9124V9.40192C9.89921 9.36473 9.61622 9.34149 9.32394 9.34149C9.27287 9.34149 8.86177 9.36884 8.81073 9.36884M14.7244 2H12.2097L12.2051 15.7775C12.1494 17.3192 10.8781 18.5591 9.32386 18.5591C8.35878 18.5591 7.50971 18.0808 6.98079 17.3564" stroke="currentColor" stroke-linejoin="round"/>
-  </svg>
-</a>
+                <a href="https://github.com/izabellahermogenes" class="social-link" target="_blank" title="GitHub">GitHub</a>
+                <a href="https://linkedin.com/in/izabella-hermogenes/" class="social-link" target="_blank" title="LinkedIn">LinkedIn</a>
+                <a href="https://instagram.com/izahermogenes" class="social-link" target="_blank" title="Instagram">Instagram</a>
+                <a href="https://www.tiktok.com/@saaabdh" class="social-link" target="_blank" title="TikTok">TikTok</a>
             </div>
         </div>
     </nav>
@@ -359,48 +320,46 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="container">
+            <!-- About Section -->
             <section class="about-section">
                 <div class="text-content">
                     <h1 class="about-title">about izabella.</h1>
-                    <p class="intro-text">I'm an <strong>aspiring developer</strong> based in Vancouver, Canada.</p>
-                    <p class="description">
-                        Since 2024, I've enjoyed learning new stuff nonstop, solving problems that actually matter, and levelling up every day and taking on new challenges. 
-                        When I'm not coding, you'll find me at a coffee shop (probably reading a book), making music or crushing a workout.
+                    <p class="intro-text">
+                        I'm a <strong>developer</strong> focused on building data-driven applications, scalable backend systems, and efficient workflows.
                     </p>
                     <p class="description">
-                        let's build something awesome together! ✨
+                        Since 2024, I’ve been solving real-world problems, learning modern technologies, and taking on challenging projects. 
+                        Outside of coding, I enjoy making music, exploring new coffee spots, and staying active with workouts.
+                    </p>
+                    <p class="description">
+                        I’m always open to collaborating on meaningful projects that leverage data and technology to make an impact.
                     </p>
                 </div>
-
-                 <div class="image-container">
-                    <img src="images/IMG_1288.JPG" 
-                       alt="Izabella Hermogenes" 
-                      class="profile-image">
+                <div class="image-container">
+                    <img src="images/IMG_1288.JPG" alt="Izabella Hermogenes" class="profile-image">
                 </div>
             </section>
 
-            <!-- Skills Section (Optional) -->
+            <!-- Skills Section -->
             <section class="skills-section">
-                <h2 class="skills-title">What I do</h2>
+                <h2 class="skills-title">Technical Expertise</h2>
                 <div class="skills-grid">
                     <div class="skill-item">
-                        <h3>Design</h3>
-                        <p>UI/UX, Branding, Prototyping</p>
+                        <h3>Data & Analytics</h3>
+                        <p>SQL, PostgreSQL, Power BI, Excel, Data Cleaning</p>
                     </div>
                     <div class="skill-item">
-                        <h3>Development</h3>
-                        <p>Frontend, Backend, Full-stack</p>
-                    </div>
-                    <div class="skill-item">
-                        <h3>Strategy</h3>
-                        <p>Product, Growth, Analytics</p>
+                        <h3>Application Development</h3>
+                        <p>Flutter, HTML, CSS, JavaScript, Git</p>
                     </div>
                 </div>
             </section>
         </div>
     </main>
+
     <footer>
-    ©️ 2025 Izabella Hermogenes
-  </footer>
+        ©️ 2025 Izabella Hermogenes
+    </footer>
+
 </body>
 </html>

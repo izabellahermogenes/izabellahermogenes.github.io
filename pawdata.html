@@ -222,28 +222,7 @@
             object-fit: cover;
             display: block;
         }
-        .phone-notch {
-            position: absolute;
-            top: 6px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40%;
-            height: 16px;
-            background: #1a1a1a;
-            border-radius: 0 0 10px 10px;
-            z-index: 2;
-        }
-        .phone-notch-main {
-            position: absolute;
-            top: 8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 38%;
-            height: 18px;
-            background: #1a1a1a;
-            border-radius: 0 0 12px 12px;
-            z-index: 2;
-        }
+
         /* placeholder screen when no image */
         .screen-placeholder {
             width: 100%;
@@ -254,16 +233,6 @@
             justify-content: center;
             gap: 10px;
             padding: 10px;
-        }
-        .screen-placeholder .app-icon {
-            width: 44px;
-            height: 44px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
         }
         .screen-bar {
             width: 70%;
@@ -353,7 +322,7 @@
         /* ── Mockup row ── */
         .mockup-row {
             display: flex;
-            gap: 28px;
+            gap: 18px;
             flex-wrap: wrap;
             justify-content: center;
             align-items: flex-end;
@@ -374,10 +343,10 @@
 
         /* iPhone frame */
         .iphone {
-            width: 160px;
-            height: 320px;
+            width: 140px;
+            height: 295px;
             background: #1a1a1a;
-            border-radius: 36px;
+            border-radius: 32px;
             border: 4px solid #3a3a3a;
             position: relative;
             overflow: hidden;
@@ -388,17 +357,7 @@
             transform: translateY(-8px);
             box-shadow: 0 36px 64px rgba(0,0,0,0.28);
         }
-        .iphone-notch {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 52px;
-            height: 22px;
-            background: #1a1a1a;
-            border-radius: 0 0 16px 16px;
-            z-index: 3;
-        }
+
         .iphone img {
             width: 100%;
             height: 100%;
@@ -674,30 +633,16 @@
             <div class="hero-phones">
                 <div class="phone-cluster">
                     <div class="phone-mini">
-                        <div class="phone-notch"></div>
-                        <!-- REPLACE src with your screenshot: <img src="images/pawdata-screen1.png" alt="PawData screen"> -->
-                        <div class="screen-placeholder" style="background:#1e1e2e">
-                            <div style="width:28px;height:28px;background:linear-gradient(135deg,#667eea,#764ba2);border-radius:8px;"></div>
-                            <div class="screen-bar"></div><div class="screen-bar short"></div>
-                        </div>
+                        
+                        <img src="images/PawData/home.png" alt="PawData Home" class="phone-screen">
                     </div>
                     <div class="phone-main">
-                        <div class="phone-notch-main"></div>
-                        <img src="images/PawData/login.png" alt="PawData Login">
-                        <div class="screen-placeholder" style="background:#f5f5f7">
-                            <div style="width:42px;height:42px;background:#2c2c2c;border-radius:14px;margin-bottom:8px;"></div>
-                            <div class="screen-bar" style="background:#ddd"></div>
-                            <div class="screen-bar short" style="background:#ddd"></div>
-                            <div class="screen-bar shorter" style="background:#ddd"></div>
-                        </div>
+                        
+                        <img src="images/PawData/login.png" alt="PawData Login" class="phone-screen">
                     </div>
                     <div class="phone-mini2">
-                        <div class="phone-notch"></div>
-                        <!-- REPLACE src with your screenshot: <img src="images/pawdata-screen2.png" alt="PawData screen"> -->
-                        <div class="screen-placeholder" style="background:#1e2e1e">
-                            <div style="width:28px;height:28px;background:linear-gradient(135deg,#11998e,#38ef7d);border-radius:8px;"></div>
-                            <div class="screen-bar"></div><div class="screen-bar short"></div>
-                        </div>
+
+                        <img src="images/PawData/community.png" alt="PawData Community" class="phone-screen">
                     </div>
                 </div>
             </div>
@@ -747,90 +692,48 @@
 
                 <div class="mockup-item">
                     <div class="iphone">
-                        <div class="iphone-notch"></div>
-                        <!-- TO ADD YOUR SCREENSHOT: replace the div below with:
-                             <img src="images/PawData/createaccount.png" alt="Registration screen"> -->
-                        <div class="iphone-placeholder">
-                            <div class="iph-topbar"><span>9:41</span><span>●●●</span></div>
-                            <div class="iph-header"><span>Create Account</span></div>
-                            <div class="iph-avatar"></div>
-                            <div class="iph-input"><span>Full name</span></div>
-                            <div class="iph-input"><span>Email</span></div>
-                            <div class="iph-input"><span>Password</span></div>
-                            <div class="iph-btn"><span>Register</span></div>
-                        </div>
+                        
+                        <img src="images/PawData/createaccount.png" alt="Registration screen">
                     </div>
                     <span class="mockup-label">Registration</span>
                 </div>
 
                 <div class="mockup-item">
                     <div class="iphone">
-                        <div class="iphone-notch"></div>
-                        <!-- <img src="images/pawdata-login.png" alt="Login screen"> -->
-                        <div class="iphone-placeholder">
-                            <div class="iph-topbar"><span>9:41</span><span>●●●</span></div>
-                            <div class="iph-header"><span>Welcome back</span></div>
-                            <div style="width:48px;height:48px;border-radius:50%;background:#e0e0e0;margin:8px auto;"></div>
-                            <div class="iph-input"><span>Email</span></div>
-                            <div class="iph-input"><span>Password</span></div>
-                            <div class="iph-btn"><span>Log In</span></div>
-                            <div style="text-align:center;margin-top:6px;"><span style="font-size:6px;color:#888;">Forgot password?</span></div>
-                        </div>
+                        
+                        <img src="images/PawData/login.png" alt="Login screen">
                     </div>
                     <span class="mockup-label">Login</span>
                 </div>
 
+                <!-- NEW mockup before Profile -->
                 <div class="mockup-item">
                     <div class="iphone">
-                        <div class="iphone-notch"></div>
-                        <!-- <img src="images/pawdata-profile.png" alt="Profile screen"> -->
-                        <div class="iphone-placeholder">
-                            <div class="iph-topbar"><span>9:41</span><span>●●●</span></div>
-                            <div class="iph-header"><span>My Profile</span></div>
-                            <div style="width:52px;height:52px;border-radius:50%;background:#2c2c2c;margin:6px auto;"></div>
-                            <div style="text-align:center;margin-bottom:8px;"><span style="font-size:8px;font-weight:600;color:#2c2c2c;">Izabella H.</span></div>
-                            <div class="iph-card">
-                                <div class="iph-card-title">Email</div>
-                                <div class="iph-card-sub">iza@email.com</div>
-                            </div>
-                            <div class="iph-card">
-                                <div class="iph-card-title">Member since</div>
-                                <div class="iph-card-sub">March 2025</div>
-                            </div>
-                        </div>
+                        <img src="images/PawData/home.png" alt="Home screen">
+                    </div>
+                    <span class="mockup-label">Home</span>
+                </div>
+
+                <div class="mockup-item">
+                    <div class="iphone">
+                        
+                        <img src="images/PawData/profile.png" alt="Profile screen">
                     </div>
                     <span class="mockup-label">Profile</span>
                 </div>
 
                 <div class="mockup-item">
                     <div class="iphone">
-                        <div class="iphone-notch"></div>
-                        <!-- <img src="images/pawdata-forgot.png" alt="Forgot password screen"> -->
-                        <div class="iphone-placeholder">
-                            <div class="iph-topbar"><span>9:41</span><span>●●●</span></div>
-                            <div class="iph-header"><span>Reset Password</span></div>
-                            <div style="width:44px;height:44px;border-radius:50%;background:#f0f0f0;margin:12px auto;display:flex;align-items:center;justify-content:center;">
-                                <div style="width:20px;height:20px;border:2px solid #888;border-radius:50%;"></div>
-                            </div>
-                            <div style="text-align:center;margin-bottom:10px;"><span style="font-size:6.5px;color:#666;">Enter your email to receive a reset link</span></div>
-                            <div class="iph-input"><span>Email address</span></div>
-                            <div class="iph-btn"><span>Send Reset Link</span></div>
-                        </div>
+                        
+                        <img src="images/PawData/forgotpassword.png" alt="Forgot password screen">
                     </div>
                     <span class="mockup-label">Forgot Password</span>
                 </div>
 
                 <div class="mockup-item">
                     <div class="iphone">
-                        <div class="iphone-notch"></div>
-                        <!-- <img src="images/pawdata-contact.png" alt="Contact us screen"> -->
-                        <div class="iphone-placeholder">
-                            <div class="iph-topbar"><span>9:41</span><span>●●●</span></div>
-                            <div class="iph-header"><span>Contact Us</span></div>
-                            <div class="iph-input" style="margin-top:8px;"><span>Subject</span></div>
-                            <div style="width:100%;height:50px;background:white;border:0.5px solid #ddd;border-radius:5px;margin-bottom:5px;padding:5px 6px;"><span style="font-size:6px;color:#bbb;">Your message...</span></div>
-                            <div class="iph-btn"><span>Send Message</span></div>
-                        </div>
+                        
+                        <img src="images/PawData/contactus.png" alt="Contact us screen">
                     </div>
                     <span class="mockup-label">Contact Us</span>
                 </div>
@@ -848,87 +751,32 @@
 
                 <div class="mockup-item">
                     <div class="iphone">
-                        <div class="iphone-notch"></div>
-                        <!-- <img src="images/pawdata-pets.png" alt="Pets list screen"> -->
-                        <div class="iphone-placeholder">
-                            <div class="iph-topbar"><span>9:41</span><span>●●●</span></div>
-                            <div class="iph-header"><span>My Pets</span></div>
-                            <div class="iph-list-item">
-                                <div class="iph-list-dot accent"></div>
-                                <div class="iph-list-text"><div class="t1">Mochi</div><div class="t2">Golden Retriever · 3 yrs</div></div>
-                            </div>
-                            <div class="iph-list-item">
-                                <div class="iph-list-dot"></div>
-                                <div class="iph-list-text"><div class="t1">Luna</div><div class="t2">Domestic Shorthair · 2 yrs</div></div>
-                            </div>
-                            <div class="iph-list-item">
-                                <div class="iph-list-dot"></div>
-                                <div class="iph-list-text"><div class="t1">Biscuit</div><div class="t2">Labrador · 5 yrs</div></div>
-                            </div>
-                            <div class="iph-btn" style="margin-top:8px;"><span>+ Add Pet</span></div>
-                        </div>
+                        
+                        <img src="images/PawData/mypets.png" alt="Pets list screen">
                     </div>
                     <span class="mockup-label">Pet List</span>
                 </div>
 
                 <div class="mockup-item">
                     <div class="iphone">
-                        <div class="iphone-notch"></div>
-                        <!-- <img src="images/pawdata-addpet.png" alt="Add pet screen"> -->
-                        <div class="iphone-placeholder">
-                            <div class="iph-topbar"><span>9:41</span><span>●●●</span></div>
-                            <div class="iph-header"><span>Add a Pet</span></div>
-                            <div style="width:52px;height:52px;border-radius:50%;background:#e8e8e8;border:2px dashed #bbb;margin:8px auto;"></div>
-                            <div class="iph-input"><span>Pet name</span></div>
-                            <div class="iph-input"><span>Species</span></div>
-                            <div class="iph-input"><span>Breed</span></div>
-                            <div class="iph-input"><span>Date of birth</span></div>
-                            <div class="iph-btn"><span>Save Pet</span></div>
-                        </div>
+                        
+                        <img src="images/PawData/addnewpet.png" alt="Add pet screen">
                     </div>
                     <span class="mockup-label">Add / Update Pet</span>
                 </div>
 
                 <div class="mockup-item">
                     <div class="iphone">
-                        <div class="iphone-notch"></div>
-                        <!-- <img src="images/pawdata-petphoto.png" alt="Pet photo screen"> -->
-                        <div class="iphone-placeholder">
-                            <div class="iph-topbar"><span>9:41</span><span>●●●</span></div>
-                            <div class="iph-header"><span>Pet Photos</span></div>
-                            <div class="iph-photo-grid" style="margin-top:8px;">
-                                <div class="iph-photo" style="background:#c8d8e8;"></div>
-                                <div class="iph-photo dark" style="background:#d8c8b8;"></div>
-                                <div class="iph-photo" style="background:#c8e8c8;"></div>
-                                <div class="iph-photo dark" style="background:#e8c8c8;"></div>
-                            </div>
-                            <div style="font-size:6px;color:#888;text-align:center;margin-top:6px;">Stored via AWS S3</div>
-                            <div class="iph-btn" style="margin-top:6px;"><span>Upload Photo</span></div>
-                        </div>
+                        
+                        <img src="images/PawData/pet.png" alt="Pet photo screen">
                     </div>
-                    <span class="mockup-label">Pet Photos (S3)</span>
+                    <span class="mockup-label">Pet Profile</span>
                 </div>
 
                 <div class="mockup-item">
                     <div class="iphone">
-                        <div class="iphone-notch"></div>
-                        <!-- <img src="images/pawdata-health.png" alt="Health records screen"> -->
-                        <div class="iphone-placeholder">
-                            <div class="iph-topbar"><span>9:41</span><span>●●●</span></div>
-                            <div class="iph-header"><span>Health Records</span></div>
-                            <div class="iph-card" style="margin-top:6px;">
-                                <div class="iph-card-title">Vaccination</div>
-                                <div class="iph-card-sub">Rabies · Jan 2025</div>
-                            </div>
-                            <div class="iph-card">
-                                <div class="iph-card-title">Checkup</div>
-                                <div class="iph-card-sub">Annual exam · Feb 2025</div>
-                            </div>
-                            <div class="iph-card">
-                                <div class="iph-card-title">Medication</div>
-                                <div class="iph-card-sub">Flea treatment · Mar 2025</div>
-                            </div>
-                        </div>
+                        
+                        <img src="images/PawData/healthrecords.png" alt="Health records screen">
                     </div>
                     <span class="mockup-label">Health Records</span>
                 </div>
@@ -946,113 +794,40 @@
 
                 <div class="mockup-item">
                     <div class="iphone">
-                        <div class="iphone-notch"></div>
-                        <!-- <img src="images/pawdata-recordphoto.png" alt="Record photos screen"> -->
-                        <div class="iphone-placeholder">
-                            <div class="iph-topbar"><span>9:41</span><span>●●●</span></div>
-                            <div class="iph-header"><span>Record Photos</span></div>
-                            <div style="width:100%;height:80px;background:#1a1a1a;border-radius:8px;margin:8px 0;display:flex;align-items:center;justify-content:center;">
-                                <div style="width:30px;height:30px;border-radius:50%;border:2px solid rgba(255,255,255,0.4);"></div>
-                            </div>
-                            <div class="iph-photo-grid">
-                                <div class="iph-photo" style="background:#dde;height:30px;"></div>
-                                <div class="iph-photo dark" style="background:#eed;height:30px;"></div>
-                            </div>
-                            <div class="iph-btn" style="margin-top:8px;"><span>Attach to Record</span></div>
-                        </div>
+                        
+                        <img src="images/PawData/addmedicalrecord.png" alt="Add Medical Record">
                     </div>
                     <span class="mockup-label">Record Photos</span>
                 </div>
 
                 <div class="mockup-item">
                     <div class="iphone">
-                        <div class="iphone-notch"></div>
-                        <!-- <img src="images/pawdata-notifications.png" alt="Notifications screen"> -->
-                        <div class="iphone-placeholder">
-                            <div class="iph-topbar"><span>9:41</span><span>●●●</span></div>
-                            <div class="iph-header"><span>Notifications</span></div>
-                            <div style="margin-top:6px;">
-                                <div class="iph-notif">
-                                    <div class="t1">Vaccine due soon</div>
-                                    <div class="t2">Mochi · Rabies · in 7 days</div>
-                                </div>
-                                <div class="iph-notif">
-                                    <div class="t1">Checkup reminder</div>
-                                    <div class="t2">Luna · Annual exam tomorrow</div>
-                                </div>
-                                <div class="iph-notif">
-                                    <div class="t1">New message</div>
-                                    <div class="t2">Dr. Smith replied to you</div>
-                                </div>
-                            </div>
-                        </div>
+                        
+                        <img src="images/PawData/notifications.png" alt="Notifications screen">
                     </div>
                     <span class="mockup-label">Notifications</span>
                 </div>
 
                 <div class="mockup-item">
                     <div class="iphone">
-                        <div class="iphone-notch"></div>
-                        <!-- <img src="images/pawdata-chat.png" alt="Messaging screen"> -->
-                        <div class="iphone-placeholder">
-                            <div class="iph-topbar"><span>9:41</span><span>●●●</span></div>
-                            <div class="iph-header"><span>Mochi's Care Chat</span></div>
-                            <div class="iph-chat-area" style="margin-top:8px;">
-                                <div class="iph-chat-msg in">Hi! How is Mochi doing?</div>
-                                <div class="iph-chat-msg out">She's doing great! Just had her checkup.</div>
-                                <div class="iph-chat-msg in">Glad to hear! Any concerns?</div>
-                                <div class="iph-chat-msg out">All clear 🐾</div>
-                            </div>
-                        </div>
+                        
+                        <img src="images/PawData/community.png" alt="Messaging screen">
                     </div>
                     <span class="mockup-label">Messaging</span>
                 </div>
 
                 <div class="mockup-item">
                     <div class="iphone">
-                        <div class="iphone-notch"></div>
-                        <!-- <img src="images/pawdata-chatrooms.png" alt="Chatrooms screen"> -->
-                        <div class="iphone-placeholder">
-                            <div class="iph-topbar"><span>9:41</span><span>●●●</span></div>
-                            <div class="iph-header"><span>Chatrooms</span></div>
-                            <div class="iph-list-item" style="margin-top:6px;">
-                                <div class="iph-list-dot accent"></div>
-                                <div class="iph-list-text"><div class="t1">Mochi's Care Team</div><div class="t2">3 members · active now</div></div>
-                            </div>
-                            <div class="iph-list-item">
-                                <div class="iph-list-dot"></div>
-                                <div class="iph-list-text"><div class="t1">Luna's Vets</div><div class="t2">2 members</div></div>
-                            </div>
-                            <div class="iph-list-item">
-                                <div class="iph-list-dot"></div>
-                                <div class="iph-list-text"><div class="t1">General</div><div class="t2">5 members</div></div>
-                            </div>
-                        </div>
+                        
+                        <img src="images/PawData/playdate.png" alt="Chatrooms screen">
                     </div>
                     <span class="mockup-label">Chatrooms</span>
                 </div>
 
                 <div class="mockup-item">
                     <div class="iphone">
-                        <div class="iphone-notch"></div>
-                        <!-- <img src="images/pawdata-delete.png" alt="Delete flow screen"> -->
-                        <div class="iphone-placeholder">
-                            <div class="iph-topbar"><span>9:41</span><span>●●●</span></div>
-                            <div class="iph-header"><span>Delete Pet</span></div>
-                            <div style="width:44px;height:44px;border-radius:50%;background:#fee;border:2px solid #f99;margin:14px auto 8px;display:flex;align-items:center;justify-content:center;">
-                                <div style="width:4px;height:16px;background:#c44;border-radius:2px;"></div>
-                            </div>
-                            <div style="text-align:center;margin-bottom:10px;">
-                                <div style="font-size:7.5px;font-weight:600;color:#2c2c2c;margin-bottom:4px;">Remove Mochi?</div>
-                                <div style="font-size:6px;color:#888;">This will delete all records.<br>This action cannot be undone.</div>
-                            </div>
-                            <div style="width:100%;height:18px;background:#cc3333;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:5px;">
-                                <span style="font-size:7px;color:white;font-weight:500;">Delete</span>
-                            </div>
-                            <div class="iph-btn" style="background:transparent;border:0.5px solid #ddd;">
-                                <span style="color:#555;">Cancel</span>
-                            </div>
-                        </div>
+                        
+                        <img src="images/PawData/editdeletepet.png" alt="Delete flow screen">
                     </div>
                     <span class="mockup-label">Delete Flow</span>
                 </div>

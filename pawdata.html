@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawData — Izabella Hermogenes</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f8f8;
+        }
+
+        /* ── Nav ── */
+        .nav {
+            background-color: #2c2c2c;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            height: 70px;
+            position: relative;
+        }
+        .logo {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 2px solid white;
+            border-radius: 50%;
+        }
+        .nav-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .nav-menu { display: flex; list-style: none; gap: 50px; align-items: center; }
+        .nav-link {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            padding: 10px 0;
+            position: relative;
+        }
+        .nav-link:hover, .nav-link.active { color: white; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 5px; left: 0;
+            width: 0; height: 2px;
+            background: white;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+        .social-links { display: flex; gap: 20px; }
+        .social-link {
+            color: #ccc;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .social-link:hover { color: white; transform: translateY(-2px); }
+
+        /* ── Main ── */
+        .main-content {
+            margin-top: 70px;
+            padding: 60px 0 80px;
+            animation: fadeIn 0.8s ease-out;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+        /* ── Hero ── */
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 90px;
+            flex-wrap: wrap;
+        }
+        .hero-text { flex: 1; min-width: 280px; }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: #2c2c2c; }
+        .project-label {
+            display: inline-block;
+            background: #f0f0f0;
+            color: #666;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 18px;
+        }
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: 300;
+            color: #2c2c2c;
+            letter-spacing: -0.02em;
+            margin-bottom: 18px;
+            line-height: 1.15;
+        }
+        .hero-desc {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 28px;
+            max-width: 480px;
+        }
+        .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+        .tag {
+            background: white;
+            border: 1.5px solid #e0e0e0;
+            color: #555;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .hero-links { display: flex; gap: 16px; flex-wrap: wrap; }
+        .btn-primary {
+            display: inline-block;
+            padding: 12px 28px;
+            background: #2c2c2c;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover { background: #555; transform: translateY(-2px); }
+        .btn-secondary {
+            display: inline-block;
+            padding: 12px 28px;
+            background: white;
+            color: #2c2c2c;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover { border-color: #2c2c2c; transform: translateY(-2px); }
+
+        /* ── Hero phone cluster ── */
+        .hero-phones {
+            flex: 1;
+            min-width: 280px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: -20px;
+            position: relative;
+            height: 400px;
+        }
+        .phone-cluster { display: flex; align-items: flex-end; gap: 12px; }
+        .phone-mini {
+            width: 120px;
+            height: 240px;
+            background: #1a1a1a;
+            border-radius: 22px;
+            border: 3px solid #444;
+            overflow: hidden;
+            position: relative;
+            transform: translateY(30px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .phone-main {
+            width: 150px;
+            height: 300px;
+            background: #1a1a1a;
+            border-radius: 28px;
+            border: 4px solid #444;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+        }
+        .phone-mini2 {
+            width: 120px;
+            height: 240px;
+            background: #1a1a1a;
+            border-radius: 22px;
+            border: 3px solid #444;
+            overflow: hidden;
+            position: relative;
+            transform: translateY(20px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .phone-notch {
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40%;
+            height: 16px;
+            background: #1a1a1a;
+            border-radius: 0 0 10px 10px;
+            z-index: 2;
+        }
+        .phone-notch-main {
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 38%;
+            height: 18px;
+            background: #1a1a1a;
+            border-radius: 0 0 12px 12px;
+            z-index: 2;
+        }
+        /* placeholder screen when no image */
+        .screen-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px;
+        }
+        .screen-placeholder .app-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+        .screen-bar {
+            width: 70%;
+            height: 6px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 3px;
+        }
+        .screen-bar.short { width: 50%; }
+        .screen-bar.shorter { width: 35%; }
+
+        /* ── Overview cards ── */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 90px;
+        }
+        .overview-card {
+            background: white;
+            border-radius: 20px;
+            padding: 32px 28px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .overview-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.12); }
+        .overview-number {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+        }
+        .overview-title {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #2c2c2c;
+            margin-bottom: 16px;
+        }
+        .overview-list { list-style: none; }
+        .overview-list li {
+            font-size: 0.9rem;
+            color: #666;
+            padding: 5px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .overview-list li:last-child { border-bottom: none; }
+        .overview-list li::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            background: #2c2c2c;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* ── Section headings ── */
+        .section-heading {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+        .section-number {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: #f0f0f0;
+            padding: 6px 14px;
+            border-radius: 20px;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 300;
+            color: #2c2c2c;
+            letter-spacing: -0.01em;
+        }
+
+        /* ── Feature sections ── */
+        .feature-section { margin-bottom: 100px; }
+
+        /* ── Mockup row ── */
+        .mockup-row {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-end;
+        }
+        .mockup-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+        }
+        .mockup-label {
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: #888;
+            text-align: center;
+            letter-spacing: 0.3px;
+        }
+
+        /* iPhone frame */
+        .iphone {
+            width: 160px;
+            height: 320px;
+            background: #1a1a1a;
+            border-radius: 36px;
+            border: 4px solid #3a3a3a;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 24px 48px rgba(0,0,0,0.22), inset 0 0 0 1px rgba(255,255,255,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .iphone:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 36px 64px rgba(0,0,0,0.28);
+        }
+        .iphone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 52px;
+            height: 22px;
+            background: #1a1a1a;
+            border-radius: 0 0 16px 16px;
+            z-index: 3;
+        }
+        .iphone img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .iphone-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 30px 12px 16px;
+            gap: 8px;
+            background: #f5f5f7;
+        }
+        .iph-topbar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+        .iph-topbar span { font-size: 8px; color: #666; }
+        .iph-header {
+            width: 100%;
+            height: 28px;
+            background: #2c2c2c;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            padding: 0 8px;
+        }
+        .iph-header span { font-size: 8px; color: rgba(255,255,255,0.8); font-weight: 500; }
+        .iph-card {
+            width: 100%;
+            background: white;
+            border-radius: 8px;
+            padding: 8px;
+            margin-bottom: 6px;
+            border: 0.5px solid #e8e8e8;
+        }
+        .iph-card-title { font-size: 7px; font-weight: 600; color: #2c2c2c; margin-bottom: 3px; }
+        .iph-card-sub { font-size: 6px; color: #888; }
+        .iph-bar { width: 100%; height: 5px; background: #e8e8e8; border-radius: 3px; margin: 3px 0; }
+        .iph-bar.filled { background: #2c2c2c; width: 60%; }
+        .iph-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #d0d0d0;
+            margin: 0 auto 8px;
+        }
+        .iph-input {
+            width: 100%;
+            height: 18px;
+            background: white;
+            border: 0.5px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            padding: 0 6px;
+        }
+        .iph-input span { font-size: 6px; color: #bbb; }
+        .iph-btn {
+            width: 100%;
+            height: 18px;
+            background: #2c2c2c;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 4px;
+        }
+        .iph-btn span { font-size: 7px; color: white; font-weight: 500; }
+        .iph-photo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3px;
+            width: 100%;
+        }
+        .iph-photo {
+            height: 40px;
+            background: #e0e0e0;
+            border-radius: 4px;
+        }
+        .iph-photo.dark { background: #c0c0c0; }
+        .iph-list-item {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 0;
+            border-bottom: 0.5px solid #f0f0f0;
+        }
+        .iph-list-dot { width: 20px; height: 20px; border-radius: 50%; background: #e0e0e0; flex-shrink: 0; }
+        .iph-list-dot.accent { background: #2c2c2c; }
+        .iph-list-text { flex: 1; }
+        .iph-list-text .t1 { font-size: 7px; font-weight: 600; color: #333; }
+        .iph-list-text .t2 { font-size: 6px; color: #888; }
+        .iph-chat-msg {
+            max-width: 85%;
+            padding: 5px 8px;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            font-size: 6.5px;
+        }
+        .iph-chat-msg.out { background: #2c2c2c; color: white; align-self: flex-end; margin-left: auto; }
+        .iph-chat-msg.in { background: #e8e8e8; color: #333; }
+        .iph-chat-area { display: flex; flex-direction: column; width: 100%; }
+        .iph-notif {
+            width: 100%;
+            background: white;
+            border-radius: 8px;
+            padding: 6px 8px;
+            margin-bottom: 5px;
+            border-left: 2px solid #2c2c2c;
+            border-top: 0.5px solid #eee;
+            border-right: 0.5px solid #eee;
+            border-bottom: 0.5px solid #eee;
+        }
+        .iph-notif .t1 { font-size: 7px; font-weight: 600; color: #2c2c2c; }
+        .iph-notif .t2 { font-size: 6px; color: #888; margin-top: 2px; }
+
+        /* ── Architecture ── */
+        .arch-section {
+            background: white;
+            border-radius: 24px;
+            padding: 56px 48px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 80px;
+        }
+        .arch-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 48px;
+        }
+        .arch-col { display: flex; flex-direction: column; gap: 12px; }
+        .arch-col-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #999;
+            margin-bottom: 4px;
+        }
+        .arch-item {
+            background: #f8f8f8;
+            border-radius: 12px;
+            padding: 14px 16px;
+            border: 1.5px solid #f0f0f0;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .arch-item:hover { border-color: #2c2c2c; transform: translateY(-2px); }
+        .arch-item-title { font-size: 0.9rem; font-weight: 500; color: #2c2c2c; margin-bottom: 4px; }
+        .arch-item-sub { font-size: 0.8rem; color: #888; }
+        .arch-item.aws { border-color: #ff9900; background: #fffbf0; }
+        .arch-item.aws .arch-item-title { color: #cc7700; }
+
+        /* ── CTA ── */
+        .cta-section {
+            text-align: center;
+            background: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        .cta-title { font-size: 2.2rem; font-weight: 300; color: #2c2c2c; margin-bottom: 16px; }
+        .cta-text { font-size: 1.1rem; color: #666; margin-bottom: 28px; }
+
+        /* ── Footer ── */
+        footer { font-size: 12px; padding: 20px 85px; text-align: left; color: #666; }
+
+        /* ── Animations ── */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+            .overview-grid { grid-template-columns: 1fr; }
+            .arch-grid { grid-template-columns: 1fr; }
+            .hero { gap: 40px; }
+            .hero-phones { height: 280px; }
+            .phone-main { width: 120px; height: 240px; }
+            .phone-mini, .phone-mini2 { width: 95px; height: 190px; }
+        }
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; height: auto; padding: 20px; }
+            .nav-center { position: relative; left: auto; transform: none; margin-bottom: 10px; }
+            .nav-menu { gap: 20px; flex-direction: column; }
+            .social-links { margin-top: 10px; }
+            .main-content { margin-top: 140px; }
+            .hero-title { font-size: 2.4rem; }
+            .iphone { width: 130px; height: 260px; }
+            .arch-section { padding: 32px 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+    <div class="nav-container">
+        <a href="index.html" class="logo">IH</a>
+        <div class="nav-center">
+            <ul class="nav-menu">
+                <li><a href="about.html" class="nav-link">about</a></li>
+                <li><a href="portfolio.html" class="nav-link active">portfolio</a></li>
+                <li><a href="contact.html" class="nav-link">contact</a></li>
+            </ul>
+        </div>
+        <div class="social-links">
+            <a href="https://github.com/izabellahermogenes" class="social-link" target="_blank" title="GitHub">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                </svg>
+            </a>
+            <a href="https://linkedin.com/in/izabella-hermogenes/" class="social-link" target="_blank" title="LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                    <rect width="4" height="12" x="2" y="9"/>
+                    <circle cx="4" cy="4" r="2"/>
+                </svg>
+            </a>
+            <a href="https://instagram.com/izahermogenes" class="social-link" target="_blank" title="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                </svg>
+            </a>
+            <a href="https://www.tiktok.com/@saabdh" class="social-link" target="_blank" title="TikTok">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.8217 5.1344C16.0886 4.29394 15.6479 3.19805 15.6479 2H14.7293M16.8217 5.1344C17.4898 5.90063 18.3944 6.45788 19.4245 6.67608C19.7446 6.74574 20.0786 6.78293 20.4266 6.78293V10.2191C18.645 10.2191 16.9932 9.64801 15.6477 8.68211V15.6707C15.6477 19.1627 12.8082 22 9.32386 22C7.50043 22 5.85334 21.2198 4.69806 19.98C3.64486 18.847 2.99994 17.3331 2.99994 15.6707C2.99994 12.2298 5.75592 9.42509 9.17073 9.35079M16.8217 5.1344C16.8039 5.12276 16.7861 5.11101 16.7684 5.09914M6.9855 17.3517C6.64217 16.8781 6.43802 16.2977 6.43802 15.6661C6.43802 14.0734 7.73249 12.7778 9.32394 12.7778C9.62087 12.7778 9.9085 12.8288 10.1776 12.9124V9.40192C9.89921 9.36473 9.61622 9.34149 9.32394 9.34149C9.27287 9.34149 8.86177 9.36884 8.81073 9.36884M14.7244 2H12.2097L12.2051 15.7775C12.1494 17.3192 10.8781 18.5591 9.32386 18.5591C8.35878 18.5591 7.50971 18.0808 6.98079 17.3564" stroke="currentColor" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<main class="main-content">
+    <div class="container">
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-text">
+                <a href="portfolio.html" class="back-link">← Back to portfolio</a>
+                <span class="project-label">App Development</span>
+                <h1 class="hero-title">PawData</h1>
+                <p class="hero-desc">
+                    A cross-platform mobile app that helps pet owners manage their companion's health data in one place — profiles, medical records, photos, and messaging, all backed by a serverless AWS architecture.
+                </p>
+                <div class="hero-tags">
+                    <span class="tag">Flutter</span>
+                    <span class="tag">Kotlin</span>
+                    <span class="tag">.NET</span>
+                    <span class="tag">AWS Lambda</span>
+                    <span class="tag">AWS S3</span>
+                    <span class="tag">AWS SES</span>
+                    <span class="tag">REST API</span>
+                    <span class="tag">PostgreSQL</span>
+                </div>
+                <div class="hero-links">
+                    <a href="https://github.com/izabellahermogenes/PawData" class="btn-primary" target="_blank">View on GitHub</a>
+                </div>
+            </div>
+            <div class="hero-phones">
+                <div class="phone-cluster">
+                    <div class="phone-mini">
+                        <div class="phone-notch"></div>
+                        <!-- REPLACE src with your screenshot: <img src="images/pawdata-screen1.png" alt="PawData screen"> -->
+                        <div class="screen-placeholder" style="background:#1e1e2e">
+                            <div style="width:28px;height:28px;background:linear-gradient(135deg,#667eea,#764ba2);border-radius:8px;"></div>
+                            <div class="screen-bar"></div><div class="screen-bar short"></div>
+                        </div>
+                    </div>
+                    <div class="phone-main">
+                        <div class="phone-notch-main"></div>
+                        <img src="images/PawData/login.png" alt="PawData Login">
+                        <div class="screen-placeholder" style="background:#f5f5f7">
+                            <div style="width:42px;height:42px;background:#2c2c2c;border-radius:14px;margin-bottom:8px;"></div>
+                            <div class="screen-bar" style="background:#ddd"></div>
+                            <div class="screen-bar short" style="background:#ddd"></div>
+                            <div class="screen-bar shorter" style="background:#ddd"></div>
+                        </div>
+                    </div>
+                    <div class="phone-mini2">
+                        <div class="phone-notch"></div>
+                        <!-- REPLACE src with your screenshot: <img src="images/pawdata-screen2.png" alt="PawData screen"> -->
+                        <div class="screen-placeholder" style="background:#1e2e1e">
+                            <div style="width:28px;height:28px;background:linear-gradient(135deg,#11998e,#38ef7d);border-radius:8px;"></div>
+                            <div class="screen-bar"></div><div class="screen-bar short"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Overview cards -->
+        <div class="overview-grid">
+            <div class="overview-card">
+                <div class="overview-number">01</div>
+                <div class="overview-title">User Management</div>
+                <ul class="overview-list">
+                    <li>Registration &amp; login</li>
+                    <li>Profile and photo upload</li>
+                    <li>Forgot password flow</li>
+                    <li>Contact us</li>
+                </ul>
+            </div>
+            <div class="overview-card">
+                <div class="overview-number">02</div>
+                <div class="overview-title">Pets &amp; Core Data</div>
+                <ul class="overview-list">
+                    <li>Add, view, update pets</li>
+                    <li>Species and breeds</li>
+                    <li>Pet photo S3 flow</li>
+                    <li>Health records</li>
+                </ul>
+            </div>
+            <div class="overview-card">
+                <div class="overview-number">03</div>
+                <div class="overview-title">Advanced Features</div>
+                <ul class="overview-list">
+                    <li>Record photos</li>
+                    <li>Notifications</li>
+                    <li>Messaging and chatrooms</li>
+                    <li>Delete flows</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 01 — User Management -->
+        <section class="feature-section">
+            <div class="section-heading">
+                <span class="section-number">01</span>
+                <h2 class="section-title">User Management</h2>
+            </div>
+            <div class="mockup-row">
+
+                <div class="mockup-item">
+                    <div class="iphone">
+                        <div class="iphone-notch"></div>
+                        <!-- TO ADD YOUR SCREENSHOT: replace the div below with:
+                             <img src="images/PawData/createaccount.png" alt="Registration screen"> -->
+                        <div class="iphone-placeholder">
+                            <div class="iph-topbar"><span>9:41</span><span>●●●</span></div>
+                            <div class="iph-header"><span>Create Account</span></div>
+                            <div class="iph-avatar"></div>
+                            <div class="iph-input"><span>Full name</span></div>
+                            <div class="iph-input"><span>Email</span></div>
+                            <div class="iph-input"><span>Password</span></div>
+                            <div class="iph-btn"><span>Register</span></div>
+                        </div>
+                    </div>
+                    <span class="mockup-label">Registration</span>
+                </div>
+
+                <div class="mockup-item">
+                    <div class="iphone">
+                        <div class="iphone-notch"></div>
+                        <!-- <img src="images/pawdata-login.png" alt="Login screen"> -->
+                        <div class="iphone-placeholder">
+                            <div class="iph-topbar"><span>9:41</span><span>●●●</span></div>
+                            <div class="iph-header"><span>Welcome back</span></div>
+                            <div style="width:48px;height:48px;border-radius:50%;background:#e0e0e0;margin:8px auto;"></div>
+                            <div class="iph-input"><span>Email</span></div>
+                            <div class="iph-input"><span>Password</span></div>
+                            <div class="iph-btn"><span>Log In</span></div>
+                            <div style="text-align:center;margin-top:6px;"><span style="font-size:6px;color:#888;">Forgot password?</span></div>
+                        </div>
+                    </div>
+                    <span class="mockup-label">Login</span>
+                </div>
+
+                <div class="mockup-item">
+                    <div class="iphone">
+                        <div class="iphone-notch"></div>
+                        <!-- <img src="images/pawdata-profile.png" alt="Profile screen"> -->
+                        <div class="iphone-placeholder">
+                            <div class="iph-topbar"><span>9:41</span><span>●●●</span></div>
+                            <div class="iph-header"><span>My Profile</span></div>
+                            <div style="width:52px;height:52px;border-radius:50%;background:#2c2c2c;margin:6px auto;"></div>
+                            <div style="text-align:center;margin-bottom:8px;"><span style="font-size:8px;font-weight:600;color:#2c2c2c;">Izabella H.</span></div>
+                            <div class="iph-card">
+                                <div class="iph-card-title">Email</div>
+                                <div class="iph-card-sub">iza@email.com</div>
+                            </div>
+                            <div class="iph-card">
+                                <div class="iph-card-title">Member since</div>
+                                <div class="iph-card-sub">March 2025</div>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="mockup-label">Profile</span>
+                </div>
+
+                <div class="mockup-item">
+                    <div class="iphone">
+                        <div class="iphone-notch"></div>
+                        <!-- <img src="images/pawdata-forgot.png" alt="Forgot password screen"> -->
+                        <div class="iphone-placeholder">
+                            <div class="iph-topbar"><span>9:41</span><span>●●●</span></div>
+                            <div class="iph-header"><span>Reset Password</span></div>
+                            <div style="width:44px;height:44px;border-radius:50%;background:#f0f0f0;margin:12px auto;display:flex;align-items:center;justify-content:center;">
+                                <div style="width:20px;height:20px;border:2px solid #888;border-radius:50%;"></div>
+                            </div>
+                            <div style="text-align:center;margin-bottom:10px;"><span style="font-size:6.5px;color:#666;">Enter your email to receive a reset link</span></div>
+                            <div class="iph-input"><span>Email address</span></div>
+                            <div class="iph-btn"><span>Send Reset Link</span></div>
+                        </div>
+                    </div>
+                    <span class="mockup-label">Forgot Password</span>
+                </div>
+
+                <div class="mockup-item">
+                    <div class="iphone">
+                        <div class="iphone-notch"></div>
+                        <!-- <img src="images/pawdata-contact.png" alt="Contact us screen"> -->
+                        <div class="iphone-placeholder">
+                            <div class="iph-topbar"><span>9:41</span><span>●●●</span></div>
+                            <div class="iph-header"><span>Contact Us</span></div>
+                            <div class="iph-input" style="margin-top:8px;"><span>Subject</span></div>
+                            <div style="width:100%;height:50px;background:white;border:0.5px solid #ddd;border-radius:5px;margin-bottom:5px;padding:5px 6px;"><span style="font-size:6px;color:#bbb;">Your message...</span></div>
+                            <div class="iph-btn"><span>Send Message</span></div>
+                        </div>
+                    </div>
+                    <span class="mockup-label">Contact Us</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 02 — Pets & Core Data -->
+        <section class="feature-section">
+            <div class="section-heading">
+                <span class="section-number">02</span>
+                <h2 class="section-title">Pets &amp; Core Data</h2>
+            </div>
+            <div class="mockup-row">
+
+                <div class="mockup-item">
+                    <div class="iphone">
+                        <div class="iphone-notch"></div>
+                        <!-- <img src="images/pawdata-pets.png" alt="Pets list screen"> -->
+                        <div class="iphone-placeholder">
+                            <div class="iph-topbar"><span>9:41</span><span>●●●</span></div>
+                            <div class="iph-header"><span>My Pets</span></div>
+                            <div class="iph-list-item">
+                                <div class="iph-list-dot accent"></div>
+                                <div class="iph-list-text"><div class="t1">Mochi</div><div class="t2">Golden Retriever · 3 yrs</div></div>
+                            </div>
+                            <div class="iph-list-item">
+                                <div class="iph-list-dot"></div>
+                                <div class="iph-list-text"><div class="t1">Luna</div><div class="t2">Domestic Shorthair · 2 yrs</div></div>
+                            </div>
+                            <div class="iph-list-item">
+                                <div class="iph-list-dot"></div>
+                                <div class="iph-list-text"><div class="t1">Biscuit</div><div class="t2">Labrador · 5 yrs</div></div>
+                            </div>
+                            <div class="iph-btn" style="margin-top:8px;"><span>+ Add Pet</span></div>
+                        </div>
+                    </div>
+                    <span class="mockup-label">Pet List</span>
+                </div>
+
+                <div class="mockup-item">
+                    <div class="iphone">
+                        <div class="iphone-notch"></div>
+                        <!-- <img src="images/pawdata-addpet.png" alt="Add pet screen"> -->
+                        <div class="iphone-placeholder">
+                            <div class="iph-topbar"><span>9:41</span><span>●●●</span></div>
+                            <div class="iph-header"><span>Add a Pet</span></div>
+                            <div style="width:52px;height:52px;border-radius:50%;background:#e8e8e8;border:2px dashed #bbb;margin:8px auto;"></div>
+                            <div class="iph-input"><span>Pet name</span></div>
+                            <div class="iph-input"><span>Species</span></div>
+                            <div class="iph-input"><span>Breed</span></div>
+                            <div class="iph-input"><span>Date of birth</span></div>
+                            <div class="iph-btn"><span>Save Pet</span></div>
+                        </div>
+                    </div>
+                    <span class="mockup-label">Add / Update Pet</span>
+                </div>
+
+                <div class="mockup-item">
+                    <div class="iphone">
+                        <div class="iphone-notch"></div>
+                        <!-- <img src="images/pawdata-petphoto.png" alt="Pet photo screen"> -->
+                        <div class="iphone-placeholder">
+                            <div class="iph-topbar"><span>9:41</span><span>●●●</span></div>
+                            <div class="iph-header"><span>Pet Photos</span></div>
+                            <div class="iph-photo-grid" style="margin-top:8px;">
+                                <div class="iph-photo" style="background:#c8d8e8;"></div>
+                                <div class="iph-photo dark" style="background:#d8c8b8;"></div>
+                                <div class="iph-photo" style="background:#c8e8c8;"></div>
+                                <div class="iph-photo dark" style="background:#e8c8c8;"></div>
+                            </div>
+                            <div style="font-size:6px;color:#888;text-align:center;margin-top:6px;">Stored via AWS S3</div>
+                            <div class="iph-btn" style="margin-top:6px;"><span>Upload Photo</span></div>
+                        </div>
+                    </div>
+                    <span class="mockup-label">Pet Photos (S3)</span>
+                </div>
+
+                <div class="mockup-item">
+                    <div class="iphone">
+                        <div class="iphone-notch"></div>
+                        <!-- <img src="images/pawdata-health.png" alt="Health records screen"> -->
+                        <div class="iphone-placeholder">
+                            <div class="iph-topbar"><span>9:41</span><span>●●●</span></div>
+                            <div class="iph-header"><span>Health Records</span></div>
+                            <div class="iph-card" style="margin-top:6px;">
+                                <div class="iph-card-title">Vaccination</div>
+                                <div class="iph-card-sub">Rabies · Jan 2025</div>
+                            </div>
+                            <div class="iph-card">
+                                <div class="iph-card-title">Checkup</div>
+                                <div class="iph-card-sub">Annual exam · Feb 2025</div>
+                            </div>
+                            <div class="iph-card">
+                                <div class="iph-card-title">Medication</div>
+                                <div class="iph-card-sub">Flea treatment · Mar 2025</div>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="mockup-label">Health Records</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 03 — Advanced Features -->
+        <section class="feature-section">
+            <div class="section-heading">
+                <span class="section-number">03</span>
+                <h2 class="section-title">Advanced Features</h2>
+            </div>
+            <div class="mockup-row">
+
+                <div class="mockup-item">
+                    <div class="iphone">
+                        <div class="iphone-notch"></div>
+                        <!-- <img src="images/pawdata-recordphoto.png" alt="Record photos screen"> -->
+                        <div class="iphone-placeholder">
+                            <div class="iph-topbar"><span>9:41</span><span>●●●</span></div>
+                            <div class="iph-header"><span>Record Photos</span></div>
+                            <div style="width:100%;height:80px;background:#1a1a1a;border-radius:8px;margin:8px 0;display:flex;align-items:center;justify-content:center;">
+                                <div style="width:30px;height:30px;border-radius:50%;border:2px solid rgba(255,255,255,0.4);"></div>
+                            </div>
+                            <div class="iph-photo-grid">
+                                <div class="iph-photo" style="background:#dde;height:30px;"></div>
+                                <div class="iph-photo dark" style="background:#eed;height:30px;"></div>
+                            </div>
+                            <div class="iph-btn" style="margin-top:8px;"><span>Attach to Record</span></div>
+                        </div>
+                    </div>
+                    <span class="mockup-label">Record Photos</span>
+                </div>
+
+                <div class="mockup-item">
+                    <div class="iphone">
+                        <div class="iphone-notch"></div>
+                        <!-- <img src="images/pawdata-notifications.png" alt="Notifications screen"> -->
+                        <div class="iphone-placeholder">
+                            <div class="iph-topbar"><span>9:41</span><span>●●●</span></div>
+                            <div class="iph-header"><span>Notifications</span></div>
+                            <div style="margin-top:6px;">
+                                <div class="iph-notif">
+                                    <div class="t1">Vaccine due soon</div>
+                                    <div class="t2">Mochi · Rabies · in 7 days</div>
+                                </div>
+                                <div class="iph-notif">
+                                    <div class="t1">Checkup reminder</div>
+                                    <div class="t2">Luna · Annual exam tomorrow</div>
+                                </div>
+                                <div class="iph-notif">
+                                    <div class="t1">New message</div>
+                                    <div class="t2">Dr. Smith replied to you</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="mockup-label">Notifications</span>
+                </div>
+
+                <div class="mockup-item">
+                    <div class="iphone">
+                        <div class="iphone-notch"></div>
+                        <!-- <img src="images/pawdata-chat.png" alt="Messaging screen"> -->
+                        <div class="iphone-placeholder">
+                            <div class="iph-topbar"><span>9:41</span><span>●●●</span></div>
+                            <div class="iph-header"><span>Mochi's Care Chat</span></div>
+                            <div class="iph-chat-area" style="margin-top:8px;">
+                                <div class="iph-chat-msg in">Hi! How is Mochi doing?</div>
+                                <div class="iph-chat-msg out">She's doing great! Just had her checkup.</div>
+                                <div class="iph-chat-msg in">Glad to hear! Any concerns?</div>
+                                <div class="iph-chat-msg out">All clear 🐾</div>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="mockup-label">Messaging</span>
+                </div>
+
+                <div class="mockup-item">
+                    <div class="iphone">
+                        <div class="iphone-notch"></div>
+                        <!-- <img src="images/pawdata-chatrooms.png" alt="Chatrooms screen"> -->
+                        <div class="iphone-placeholder">
+                            <div class="iph-topbar"><span>9:41</span><span>●●●</span></div>
+                            <div class="iph-header"><span>Chatrooms</span></div>
+                            <div class="iph-list-item" style="margin-top:6px;">
+                                <div class="iph-list-dot accent"></div>
+                                <div class="iph-list-text"><div class="t1">Mochi's Care Team</div><div class="t2">3 members · active now</div></div>
+                            </div>
+                            <div class="iph-list-item">
+                                <div class="iph-list-dot"></div>
+                                <div class="iph-list-text"><div class="t1">Luna's Vets</div><div class="t2">2 members</div></div>
+                            </div>
+                            <div class="iph-list-item">
+                                <div class="iph-list-dot"></div>
+                                <div class="iph-list-text"><div class="t1">General</div><div class="t2">5 members</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="mockup-label">Chatrooms</span>
+                </div>
+
+                <div class="mockup-item">
+                    <div class="iphone">
+                        <div class="iphone-notch"></div>
+                        <!-- <img src="images/pawdata-delete.png" alt="Delete flow screen"> -->
+                        <div class="iphone-placeholder">
+                            <div class="iph-topbar"><span>9:41</span><span>●●●</span></div>
+                            <div class="iph-header"><span>Delete Pet</span></div>
+                            <div style="width:44px;height:44px;border-radius:50%;background:#fee;border:2px solid #f99;margin:14px auto 8px;display:flex;align-items:center;justify-content:center;">
+                                <div style="width:4px;height:16px;background:#c44;border-radius:2px;"></div>
+                            </div>
+                            <div style="text-align:center;margin-bottom:10px;">
+                                <div style="font-size:7.5px;font-weight:600;color:#2c2c2c;margin-bottom:4px;">Remove Mochi?</div>
+                                <div style="font-size:6px;color:#888;">This will delete all records.<br>This action cannot be undone.</div>
+                            </div>
+                            <div style="width:100%;height:18px;background:#cc3333;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:5px;">
+                                <span style="font-size:7px;color:white;font-weight:500;">Delete</span>
+                            </div>
+                            <div class="iph-btn" style="background:transparent;border:0.5px solid #ddd;">
+                                <span style="color:#555;">Cancel</span>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="mockup-label">Delete Flow</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Architecture -->
+        <section class="arch-section">
+            <div class="section-heading" style="margin-bottom:0;">
+                <span class="section-number">arch</span>
+                <h2 class="section-title">System Architecture</h2>
+            </div>
+            <div class="arch-grid">
+                <div class="arch-col">
+                    <div class="arch-col-title">Client Apps</div>
+                    <div class="arch-item">
+                        <div class="arch-item-title">iOS &amp; Android</div>
+                        <div class="arch-item-sub">Flutter</div>
+                    </div>
+                    <div class="arch-item">
+                        <div class="arch-item-title">Web</div>
+                        <div class="arch-item-sub">Browser client</div>
+                    </div>
+                </div>
+                <div class="arch-col">
+                    <div class="arch-col-title">Service Layer</div>
+                    <div class="arch-item">
+                        <div class="arch-item-title">User Service</div>
+                        <div class="arch-item-sub">Auth · Profiles · Contact</div>
+                    </div>
+                    <div class="arch-item">
+                        <div class="arch-item-title">Pets &amp; Records</div>
+                        <div class="arch-item-sub">Pets · Breeds · Health</div>
+                    </div>
+                    <div class="arch-item">
+                        <div class="arch-item-title">Media &amp; Notifs</div>
+                        <div class="arch-item-sub">Photos · Alerts</div>
+                    </div>
+                    <div class="arch-item">
+                        <div class="arch-item-title">REST API</div>
+                        <div class="arch-item-sub">API Gateway · .NET · Kotlin</div>
+                    </div>
+                    <div class="arch-item">
+                        <div class="arch-item-title">Database</div>
+                        <div class="arch-item-sub">PostgreSQL · PgAdmin</div>
+                    </div>
+                </div>
+                <div class="arch-col">
+                    <div class="arch-col-title">AWS Services</div>
+                    <div class="arch-item aws">
+                        <div class="arch-item-title">AWS Lambda</div>
+                        <div class="arch-item-sub">Serverless compute</div>
+                    </div>
+                    <div class="arch-item aws">
+                        <div class="arch-item-title">AWS S3</div>
+                        <div class="arch-item-sub">Photo storage</div>
+                    </div>
+                    <div class="arch-item aws">
+                        <div class="arch-item-title">AWS SES</div>
+                        <div class="arch-item-sub">Email delivery</div>
+                    </div>
+                    <div class="arch-item aws">
+                        <div class="arch-item-title">API Gateway</div>
+                        <div class="arch-item-sub">Request routing</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <h2 class="cta-title">Interested in PawData?</h2>
+            <p class="cta-text">Check out the full source code or get in touch to learn more.</p>
+            <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+                <a href="https://github.com/izabellahermogenes/PawData" class="btn-primary" target="_blank">View on GitHub</a>
+                <a href="contact.html" class="btn-secondary">Get In Touch</a>
+            </div>
+        </section>
+
+    </div>
+</main>
+
+<footer>©️ 2025 Izabella Hermogenes</footer>
+
+</body>
+</html>
